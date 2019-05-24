@@ -1,10 +1,5 @@
 package entity;
 
-import contract.IDestroyable;
-import contract.IGravity;
-import contract.ISliding;
-import contract.IMovable;
-
 public class Rock extends Block implements IGravity, ISliding, IMovable{
 
 	@Override

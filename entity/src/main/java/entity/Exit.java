@@ -1,7 +1,5 @@
 package entity;
 
-import contract.IDestroyable;
-
 public class Exit extends Block implements IDestroyable{
 
 	@Override

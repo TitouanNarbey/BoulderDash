@@ -1,7 +1,5 @@
 package entity;
 
-import contract.IDestroyable;
-
 
 public class Air extends Block implements IDestroyable{
 
