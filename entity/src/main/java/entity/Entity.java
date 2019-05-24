@@ -1,5 +1,10 @@
 package entity;
 
+import contract.IGravity;
+import contract.ISliding;
+import contract.IMovable;
+import contract.IDestroyable;
+
 /**
  * The Class Entity.
  *
