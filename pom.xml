@@ -1,6 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jpublankproject</groupId>
 	<artifactId>masterpom</artifactId>
@@ -17,6 +17,7 @@
 		<module>contract</module>
 		<module>model</module>
 		<module>entity</module>
+		<module>showboard</module>
 	</modules>
 	<dependencies>
 		<dependency>
@@ -25,6 +26,13 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+<!--		<dependency>
+			<groupId>showboard</groupId>
+			<artifactId>showboard</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/libs/showboard.jar</systemPath>
+		</dependency>-->
 	</dependencies>
 	<build>
 		<plugins>
@@ -52,11 +60,11 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.7.1</version>
 			</plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>3.0.0</version>
-            </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.0.0</version>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -78,7 +86,7 @@
 						</goals>
 						<phase>site</phase>
 						<configuration>
-                    <skipDeploy>true</skipDeploy>
+							<skipDeploy>true</skipDeploy>
 						</configuration>
 					</execution>
 				</executions>
@@ -143,10 +151,10 @@
 		</plugins>
 	</reporting>
 	<url>-</url>
-  <distributionManagement>
-    <site>
-      <id>www.yourcompany.com</id>
-      <url>scp://www.yourcompany.com/www/docs/project/</url>
-    </site>
-  </distributionManagement>
+	<distributionManagement>
+		<site>
+			<id>www.yourcompany.com</id>
+			<url>scp://www.yourcompany.com/www/docs/project/</url>
+		</site>
+	</distributionManagement>
 </project>
