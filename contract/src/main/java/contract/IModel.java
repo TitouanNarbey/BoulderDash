@@ -32,4 +32,12 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+	
+	/**
+	 * Load the message.
+	 *
+	 * @param code
+	 *          the code
+	 */
+	void loadMap(int code);
 }

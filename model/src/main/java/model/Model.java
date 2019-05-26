@@ -5,6 +5,7 @@ import java.util.Observable;
 
 import contract.IModel;
 import entity.HelloWorld;
+import entity.Map;
 
 /**
  * The Class Model.
@@ -21,6 +22,7 @@ public final class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		this.helloWorld = new HelloWorld();
+		this.map = new Map();
 	}
 
 	/**
@@ -82,4 +84,25 @@ public final class Model extends Observable implements IModel {
 	public Observable getObservable() {
 		return this;
 	}
+	
+	
+	/** The helloWorld. */
+	private Map map;
+	
+	public Map getMap() {
+		return this.map;
+	}
+	
+	private void setMap(final Map map_) {
+		this.map = map_;
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public void loadMap(final int code) {
+		final DAOMap daoMap = new DAOMap();
+		this.setMap(daoMap.find(code));
+	}
+	
+	
 }

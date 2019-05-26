@@ -6,6 +6,15 @@ public class Map {
 	private int diamondToWin;
 	private Entity[][] content;
 
+	public Map()
+	{
+		content = new Entity[1][1];
+	}
+	public Map(int width, int height)
+	{
+		content = new Entity[height][width];
+	}
+	
 	public int getDiamondToWin() {
 		return diamondToWin;
 	}
@@ -14,6 +23,9 @@ public class Map {
 	}
 	public int getHeight() {
 		return height;
+	}
+	public Entity[][] getContent() {
+		return content;
 	}
 	
 	public void setDiamondToWin(int mbdiamond){

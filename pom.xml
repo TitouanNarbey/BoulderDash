@@ -17,7 +17,6 @@
 		<module>contract</module>
 		<module>model</module>
 		<module>entity</module>
-		<module>showboard</module>
 	</modules>
 	<dependencies>
 		<dependency>
@@ -26,13 +25,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-<!--		<dependency>
-			<groupId>showboard</groupId>
-			<artifactId>showboard</artifactId>
-			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/libs/showboard.jar</systemPath>
-		</dependency>-->
 	</dependencies>
 	<build>
 		<plugins>

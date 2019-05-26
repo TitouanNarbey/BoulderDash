@@ -1,14 +1,12 @@
 package entity;
 
-import fr.exia.showboard.BoardFrame;
-
 /**
  * The Class Entity.
  *
  * @author Jean-Aymeric Diet
  */
 public abstract class Entity {
-	BoardFrame gg;
+	
 }
 
 /*
