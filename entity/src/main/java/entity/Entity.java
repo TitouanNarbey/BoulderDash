@@ -6,6 +6,30 @@ package entity;
  * @author Jean-Aymeric Diet
  */
 public abstract class Entity {
+	private Sprite sprite;
+	
+    public Entity(final Sprite sprite_) {
+        this.setSprite(sprite_);
+    }
+	
+    /**
+     * Gets the sprite.
+     *
+     * @return the sprite
+     */
+    public final Sprite getSprite() {
+        return this.sprite;
+    }
+
+    /**
+     * Sets the sprite.
+     *
+     * @param sprite
+     *            the new sprite
+     */
+    private void setSprite(final Sprite sprite) {
+        this.sprite = sprite;
+    }
 	
 }
 

@@ -79,6 +79,10 @@ public class Map {
 	public void moveTop(int x, int y) {
 		
 	}
+	
+	public void setEntityOnTheMap(int x_, int y_, Entity entity_) {
+		content[x_][y_] = entity_;
+	}
 
 	
 	

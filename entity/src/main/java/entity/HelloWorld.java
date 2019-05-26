@@ -7,6 +7,10 @@ package entity;
  */
 public class HelloWorld extends Entity {
 
+	private static final Sprite SPRITE = new Sprite('_',"Rock.png");
+	
+	
+	
 	/** The id. */
 	private int			id;
 
@@ -27,6 +31,7 @@ public class HelloWorld extends Entity {
 	 *          the message
 	 */
 	public HelloWorld(final int id, final String key, final String message) {
+		super(SPRITE);
 		this.setId(id);
 		this.setKey(key);
 		this.setMessage(message);

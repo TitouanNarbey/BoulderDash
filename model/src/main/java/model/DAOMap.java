@@ -91,7 +91,7 @@ public class DAOMap {
 			// 4): execute requete
 			rsResultset = stStatement.executeQuery(sqlRequestString);
 			// 5):
-			if (rsResultset.next()) {//on fait vraiment un while là, on est sencé avoir une seul route
+			if (rsResultset.first()) {//on fait vraiment un while là, on est sencé avoir une seul route
 				int width = rsResultset.getInt("width");
 				int height = rsResultset.getInt("height");
 				TEMP_map = new Map(width, height);
@@ -101,14 +101,14 @@ public class DAOMap {
 
 				System.out.println(TEMP_mapText_FromSQL);
 
-//				for(int y=0; y < height; y++)
-//				{
-//					for(int x=0; x < width; x++)
-//					{
-//						this.setOnTheRoadXY(MotionlessElementsFactory.getFromFileSymbol(TEMP_road_FromSQL.charAt(y*width + x)), x, y);
-//						System.out.println(y*width + x);
-//					}
-//				}
+				for(int y=0; y < height; y++)
+				{
+					for(int x=0; x < width; x++)
+					{
+						TEMP_map.setEntityOnTheMap(x_, y_, entity_);//(y*width + x)
+						System.out.println(y*width + x);
+					}
+				}
 			}
 			else {
 				System.out.println("<ERREUR, la map de jeu na pas ete trouvee>");
