@@ -131,7 +131,7 @@ public class EntityFactory {
      *            the file symbol
      * @return the from file symbol
      */
-    public static Entity getFromFileSymbol(final char fileSymbol) {
+    public static Entity getFromSymbol(final char fileSymbol) {
         for (final Entity entityElement : entities) {
             if (entityElement.getSprite().getConsoleImage() == fileSymbol) {
                 return entityElement;

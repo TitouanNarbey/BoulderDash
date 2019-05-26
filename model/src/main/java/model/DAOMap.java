@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import entity.Entity;
+import entity.EntityFactory;
 import entity.HelloWorld;
 import entity.Map;
 
@@ -105,7 +106,7 @@ public class DAOMap {
 				{
 					for(int x=0; x < width; x++)
 					{
-						TEMP_map.setEntityOnTheMap(x_, y_, entity_);//(y*width + x)
+						TEMP_map.setEntityOnTheMap(x, y, EntityFactory.getFromSymbol(TEMP_mapText_FromSQL.charAt(y*width + x)));//(y*width + x)
 						System.out.println(y*width + x);
 					}
 				}

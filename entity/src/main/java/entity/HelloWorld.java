@@ -7,7 +7,7 @@ package entity;
  */
 public class HelloWorld extends Entity {
 
-	private static final Sprite SPRITE = new Sprite('_',"Rock.png");
+	private static final Sprite SPRITE = new Sprite('*',"Rock.png");
 	
 	
 	
