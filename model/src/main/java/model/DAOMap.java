@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import entity.Entity;
 import entity.EntityFactory;
-import entity.HelloWorld;
 import entity.Map;
 
 public class DAOMap {
@@ -17,8 +15,7 @@ public class DAOMap {
 //	private final Connection connection;
 	
 	
-	public DAOMap(/*Connection connection) throws SQLException*/) {
-		//super(connection);
+	public DAOMap() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -65,7 +62,7 @@ public class DAOMap {
 	 *
 	 * @param id
 	 *          the id
-	 * @return the e
+	 * @return the map
 	 */
 	public Map find(int id)
 	{
@@ -95,7 +92,9 @@ public class DAOMap {
 			if (rsResultset.first()) {//on fait vraiment un while là, on est sencé avoir une seul route
 				int width = rsResultset.getInt("width");
 				int height = rsResultset.getInt("height");
+				int diamondToWin = rsResultset.getInt("diamond");
 				TEMP_map = new Map(width, height);
+				TEMP_map.setDiamondToWin(diamondToWin);
 
 				String TEMP_mapText_FromSQL = rsResultset.getString("content");
 				TEMP_mapText_FromSQL = TEMP_mapText_FromSQL.replaceAll("\r\n", "");
@@ -112,7 +111,7 @@ public class DAOMap {
 				}
 			}
 			else {
-				System.out.println("<ERREUR, la map de jeu na pas ete trouvee>");
+				System.out.println("<ERROR : map not found>");
 			}
 
 		} catch (SQLException e) {
@@ -126,6 +125,10 @@ public class DAOMap {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("Diamond to Win : " + TEMP_map.getDiamondToWin());
+		System.out.println(TEMP_map.getEntity(0, 0).toString());
+		System.out.println(TEMP_map.getEntity(1, 1).toString());
+		System.out.println(TEMP_map.getEntity(3, 2).toString());
 		return TEMP_map;
 	}
 
