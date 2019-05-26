@@ -1,5 +1,10 @@
 package controller;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.text.View;
+
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -8,7 +13,7 @@ import contract.IView;
 /**
  * The Class Controller.
  */
-public final class Controller implements IController {
+public final class Controller implements IController{
 
 	/** The view. */
 	private IView		view;
@@ -89,9 +94,30 @@ public final class Controller implements IController {
 			case map:
 				this.model.loadMap(1);
 				break;
+				
+			case left:
+				System.out.println("Go LEFT");
+				this.model.getMap().moveRight(this.model.getMap().getPlayerLocation());
+				break;
+			case right:
+				System.out.println("Go RIGHT");
+				this.model.getMap().moveRight(this.model.getMap().getPlayerLocation());
+				break;
+			case up:
+				System.out.println("Go UP");
+				this.model.getMap().moveLeft(this.model.getMap().getPlayerLocation());
+				break;
+			case down:
+				System.out.println("Go DOWN");
+				this.model.getMap().moveLeft(this.model.getMap().getPlayerLocation());
+				break;
+				
+				
 			default:
 				break;
 		}
+
 	}
+
 
 }

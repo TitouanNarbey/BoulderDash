@@ -97,11 +97,17 @@ public final class Model extends Observable implements IModel {
 		this.map = map_;
 		this.setChanged();
 		this.notifyObservers();
+		System.out.println(map.getEntity(0, 0).toString());
+		System.out.println(map.getEntity(1, 1).toString());
+		System.out.println(map.getEntity(3, 2).toString());
 	}
 	
 	public void loadMap(final int code) {
 		final DAOMap daoMap = new DAOMap();
 		this.setMap(daoMap.find(code));
+		//debug
+		map.printMapConsol();
+		//
 	}
 	
 	

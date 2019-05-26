@@ -15,5 +15,9 @@ public enum ControllerOrder {
 	Deutsch,
 	/** The Indonesia. */
 	Indonesia, 
-	map
+	map, 
+	left,
+	right,
+	up,
+	down
 }

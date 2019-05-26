@@ -14,7 +14,7 @@ import contract.IView;
  *
  * @author Jean-Aymeric Diet
  */
-public final class View implements IView, Runnable {
+public final class View implements IView, Runnable{
 
 	/** The frame. */
 	private final ViewFrame viewFrame;
@@ -43,10 +43,20 @@ public final class View implements IView, Runnable {
 				return ControllerOrder.English;
 			case KeyEvent.VK_F:
 				return ControllerOrder.Francais;
-			case KeyEvent.VK_D:
+			case KeyEvent.VK_J:
 				return ControllerOrder.Deutsch;
 			case KeyEvent.VK_I:
 				return ControllerOrder.Indonesia;
+				
+			case KeyEvent.VK_Z:
+				return ControllerOrder.up;
+			case KeyEvent.VK_Q:
+				return ControllerOrder.left;
+			case KeyEvent.VK_S:
+				return ControllerOrder.down;
+			case KeyEvent.VK_D:
+				return ControllerOrder.right;
+				
 			default:
 				return ControllerOrder.English;
 		}
