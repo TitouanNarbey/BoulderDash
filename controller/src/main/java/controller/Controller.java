@@ -91,6 +91,18 @@ public final class Controller implements IController{
 			case Indonesia:
 				this.model.loadHelloWorld("ID");
 				break;
+			case Z:
+				System.out.println("Z");
+				break;
+			case Q:
+				System.out.println("Q");
+				break;
+			case S:
+				System.out.println("S");
+				break;
+			case D:
+				System.out.println("D");
+				break;
 			case map:
 				this.model.loadMap(1);
 				break;
