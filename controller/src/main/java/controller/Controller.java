@@ -93,15 +93,19 @@ public final class Controller implements IController{
 				break;
 			case Z:
 				System.out.println("Z");
+				this.model.getMap().moveTopPlayer(this.model.getMap().getPlayerLocation());
 				break;
 			case Q:
 				System.out.println("Q");
+				this.model.getMap().moveLeftPlayer(this.model.getMap().getPlayerLocation());
 				break;
 			case S:
 				System.out.println("S");
+				this.model.getMap().moveBotPlayer(this.model.getMap().getPlayerLocation());
 				break;
 			case D:
 				System.out.println("D");
+				this.model.getMap().moveRightPlayer(this.model.getMap().getPlayerLocation());
 				break;
 			case map:
 				this.model.loadMap(1);

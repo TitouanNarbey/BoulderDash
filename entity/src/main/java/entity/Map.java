@@ -107,7 +107,7 @@ public class Map {
 	//move the player
 	public boolean moveTopPlayer(int x, int y) {
 		Entity enti = this.getTopEntity(x, y);
-		if(enti.getClass() == IDestroyable.class)
+		if(enti instanceof IDestroyable)
 		{
 			moveTop(x, y);
 			printMapConsol();
@@ -121,7 +121,7 @@ public class Map {
 	}
 	public boolean moveBotPlayer(int x, int y) {
 		Entity enti = this.getBotEntity(x, y);
-		if(enti.getClass() == IDestroyable.class)
+		if(enti instanceof IDestroyable)
 		{
 			moveBot(x, y);
 			printMapConsol();
@@ -135,7 +135,7 @@ public class Map {
 	}
 	public boolean moveLeftPlayer(int x, int y) {
 		Entity enti = this.getLeftEntity(x, y);
-		if(enti.getClass() == IDestroyable.class)
+		if(enti instanceof IDestroyable)
 		{
 			moveLeft(x, y);
 			printMapConsol();
@@ -149,7 +149,7 @@ public class Map {
 	}
 	public boolean moveRightPlayer(int x, int y) {
 		Entity enti = this.getRightEntity(x, y);
-		if(enti.getClass() == IDestroyable.class)
+		if(enti instanceof IDestroyable)
 		{
 			moveRight(x, y);
 			printMapConsol();
@@ -177,6 +177,18 @@ public class Map {
 	public void moveRight(Point pnt) {
 		moveRight(pnt.x,pnt.y);
 	}
+	public void moveTopPlayer(Point pnt) {
+		moveTopPlayer(pnt.x,pnt.y);
+	}
+	public void moveLeftPlayer(Point pnt) {
+		moveLeftPlayer(pnt.x,pnt.y);
+	}
+	public void moveBotPlayer(Point pnt) {
+		moveBotPlayer(pnt.x,pnt.y);
+	}
+	public void moveRightPlayer(Point pnt) {
+		moveRightPlayer(pnt.x,pnt.y);
+	}
 	
 	
 	
@@ -186,9 +198,10 @@ public class Map {
 		{
 			for(int x=0; x < width; x++)
 			{
-				if(content[x][y].getClass() == Player.class)
+				if(content[x][y].getClass() == /*Player.class*/SpawnPoint.class)
 				{
 					pnt = new Point(x,y);
+					System.out.println("SpawnPoint found : " + x + " " + y);
 				}
 			}
 		}
