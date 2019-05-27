@@ -47,16 +47,7 @@ public final class View implements IView, Runnable{
 				return ControllerOrder.Deutsch;
 			case KeyEvent.VK_I:
 				return ControllerOrder.Indonesia;
-				
-			case KeyEvent.VK_Z:
-				return ControllerOrder.up;
-			case KeyEvent.VK_Q:
-				return ControllerOrder.left;
-			case KeyEvent.VK_S:
-				return ControllerOrder.down;
-			case KeyEvent.VK_D:
-				return ControllerOrder.right;
-				
+
 			default:
 				return ControllerOrder.English;
 		}
