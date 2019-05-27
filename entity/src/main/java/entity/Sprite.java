@@ -60,7 +60,9 @@ public class Sprite {
      *             Signals that an I/O exception has occurred.
      */
     public final void loadImage() throws IOException {
-        this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
+//      this.setImage(ImageIO.read(new File("images/" + this.getImageName())));
+      this.setImage(ImageIO.read(new File("..\\images\\" + this.getImageName())));
+//        this.setImage(ImageIO.read(new File("D:\\Users\\1850743\\Documents\\Eclipse_Projets\\Projet_Java_A1\\JPU-BlankProject\\entity\\src\\images\\Rock.png")));
     }
 
     /**
