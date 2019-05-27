@@ -107,9 +107,22 @@ public final class Controller implements IController{
 				System.out.println("D");
 				this.model.getMap().moveRightPlayer(this.model.getMap().getPlayerLocation());
 				break;
-			case map:
+			case mapUN:
 				this.model.loadMap(1);
 				break;
+			case mapDEUX:
+				this.model.loadMap(2);
+				break;
+			case mapTROIS:
+				this.model.loadMap(3);
+				break;
+			case mapQUATRE:
+				this.model.loadMap(4);
+				break;
+			case mapCINQ:
+				this.model.loadMap(5);
+				break;
+				
 
 			default:
 				break;

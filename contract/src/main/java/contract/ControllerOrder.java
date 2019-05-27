@@ -19,5 +19,11 @@ public enum ControllerOrder {
 	Z,
 	Q,
 	S,
-	D
+	D,
+	mapUN,
+	mapDEUX,
+	mapTROIS,
+	mapQUATRE,
+	mapCINQ
+	
 }

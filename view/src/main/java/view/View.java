@@ -55,6 +55,17 @@ public final class View implements IView, Runnable{
 				return ControllerOrder.S;
 			case KeyEvent.VK_D:
 				return ControllerOrder.D;
+			case KeyEvent.VK_1:
+				return ControllerOrder.mapUN;
+			case KeyEvent.VK_2:
+				return ControllerOrder.mapDEUX;
+			case KeyEvent.VK_3:
+				return ControllerOrder.mapTROIS;
+			case KeyEvent.VK_4:
+				return ControllerOrder.mapQUATRE;
+			case KeyEvent.VK_5:
+				return ControllerOrder.mapCINQ;
+				
 
 			default:
 				return ControllerOrder.English;
