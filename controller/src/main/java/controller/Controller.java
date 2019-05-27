@@ -92,7 +92,7 @@ public final class Controller implements IController{
 				this.model.loadHelloWorld("ID");
 				break;
 			case Z:
-				System.out.println("Z");
+				System.out.println("Z");//debug
 				this.model.getMap().moveTopPlayer(this.model.getMap().getPlayerLocation());
 				break;
 			case Q:

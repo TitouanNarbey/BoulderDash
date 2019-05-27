@@ -4,6 +4,7 @@ public class Exit extends Block implements IDestroyable{
 
 	private static final Sprite SPRITE = new Sprite('E',"Rock.png");
 	
+	
 	public Exit() {
 		super(SPRITE);
 	}
@@ -12,5 +13,6 @@ public class Exit extends Block implements IDestroyable{
 		// TODO Auto-generated method stub
 		
 	}
+	
 
 }

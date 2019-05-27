@@ -6,6 +6,8 @@ public class Map {
 	private int width;
 	private int height;
 	private int diamondToWin;
+	private int diamondNow;
+	boolean open = false;
 	private Entity[][] content;
 
 	public Map()
@@ -86,22 +88,22 @@ public class Map {
 //		this.content[x][y-1].destroy();
 		this.content[x][y-1] = this.content[x][y];
 //		this.content[x][y].destroy();
-		this.content[x][y] = new Air();;
+		this.content[x][y] = new Air();
 		System.out.println("Go UP");
 	}
 	public void moveLeft(int x, int y) {
 		this.content[x-1][y] = this.content[x][y];
-		this.content[x][y] = new Air();;
+		this.content[x][y] = new Air();
 		System.out.println("Go LEFT");
 	}
 	public void moveBot(int x, int y) {
 		this.content[x][y+1] = this.content[x][y];
-		this.content[x][y] = new Air();;
+		this.content[x][y] = new Air();
 		System.out.println("Go DOWN");
 	}
 	public void moveRight(int x, int y) {
 		this.content[x+1][y] = this.content[x][y];
-		this.content[x][y] = new Air();;
+		this.content[x][y] = new Air();
 		System.out.println("Go RIGHT");
 	}
 	//move the player
@@ -109,13 +111,21 @@ public class Map {
 		Entity enti = this.getTopEntity(x, y);
 		if(enti instanceof IDestroyable)
 		{
+			if(getTopEntity(x, y) instanceof Diamond)
+			{
+				addDiamondNow();
+			}
+			if(getBotEntity(x, y) instanceof Exit && isOpen())
+			{
+				System.out.println("Win !");
+			}
 			moveTop(x, y);
-			printMapConsol();
+			updateMap();
 			return true;
 		}
 		else
 		{
-			printMapConsol();
+			updateMap();
 			return false;
 		}
 	}
@@ -123,13 +133,21 @@ public class Map {
 		Entity enti = this.getBotEntity(x, y);
 		if(enti instanceof IDestroyable)
 		{
+			if(getBotEntity(x, y) instanceof Diamond)
+			{
+				addDiamondNow();
+			}
+			if(getBotEntity(x, y) instanceof Exit && isOpen())
+			{
+				System.out.println("Win !");
+			}
 			moveBot(x, y);
-			printMapConsol();
+			updateMap();
 			return true;
 		}
 		else
 		{
-			printMapConsol();
+			updateMap();
 			return false;
 		}
 	}
@@ -137,13 +155,21 @@ public class Map {
 		Entity enti = this.getLeftEntity(x, y);
 		if(enti instanceof IDestroyable)
 		{
+			if(getLeftEntity(x, y) instanceof Diamond)
+			{
+				addDiamondNow();
+			}
+			if(getLeftEntity(x, y) instanceof Exit && isOpen())
+			{
+				System.out.println("Win !");
+			}
 			moveLeft(x, y);
-			printMapConsol();
+			updateMap();
 			return true;
 		}
 		else
 		{
-			printMapConsol();
+			updateMap();
 			return false;
 		}
 	}
@@ -151,13 +177,21 @@ public class Map {
 		Entity enti = this.getRightEntity(x, y);
 		if(enti instanceof IDestroyable)
 		{
+			if(getRightEntity(x, y) instanceof Diamond)
+			{
+				addDiamondNow();
+			}
+			if(getRightEntity(x, y) instanceof Exit && isOpen())
+			{
+				System.out.println("Win !");
+			}
 			moveRight(x, y);
-			printMapConsol();
+			updateMap();
 			return true;
 		}
 		else
 		{
-			printMapConsol();
+			updateMap();
 			return false;
 		}
 	}
@@ -223,7 +257,61 @@ public class Map {
 			}
 			System.out.println();
 		}
+		System.out.println("Nb diamond : " + diamondNow + "/" + diamondToWin);
+		System.out.println("Door : " + isOpen());
+	}
+
+	public void updateMap() {
+		for(int y=height-1; y > 0; y--)
+		{
+			for(int x=width-1; x > 0; x--)
+			{
+				if(getEntity(x, y) instanceof IGravity)
+				{
+					if(getBotEntity(x, y) instanceof Air)
+					{
+						moveBot(x, y);
+						
+					}
+				}
+			}
+		}
+
+		printMapConsol();
+	}
+
+
+	private void addDiamondNow(){
+		diamondNow++;
+		updateExit();
+		
 	}
 	
+	private void updateExit(){
+		if(diamondNow == diamondToWin)
+		{
+			for(int y=0; y < height; y++)
+			{
+				for(int x=0; x < width; x++)
+				{
+					if(content[x][y].getClass() == Exit.class)
+					{
+						setOpen();
+					}
+				}
+			}
+		}
+		
+	}
 	
+	//door
+	public void setOpen() {
+		open = true;
+	}
+	public void setClose() {
+		open = false;
+	}
+	public boolean isOpen() {
+		return open;
+	}
 }

@@ -151,7 +151,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
 	 */
 	public void keyTyped(final KeyEvent e) {
-
+		
 	}
 
 	/*
