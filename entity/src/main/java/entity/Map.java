@@ -64,6 +64,7 @@ public class Map {
 	}
 	
 	
+	// by x,y
 	public Entity getTopEntity(int x, int y) {
 		return this.getEntity(x, y-1);
 	}
@@ -80,23 +81,90 @@ public class Map {
 		return this.content[x][y];
 	}
 	
+	//MOVE
 	public void moveTop(int x, int y) {
-
+//		this.content[x][y-1].destroy();
+		this.content[x][y-1] = this.content[x][y];
+//		this.content[x][y].destroy();
+		this.content[x][y] = new Air();;
 		System.out.println("Go UP");
 	}
 	public void moveLeft(int x, int y) {
-
+		this.content[x-1][y] = this.content[x][y];
+		this.content[x][y] = new Air();;
 		System.out.println("Go LEFT");
 	}
 	public void moveBot(int x, int y) {
-
+		this.content[x][y+1] = this.content[x][y];
+		this.content[x][y] = new Air();;
 		System.out.println("Go DOWN");
 	}
 	public void moveRight(int x, int y) {
-
+		this.content[x+1][y] = this.content[x][y];
+		this.content[x][y] = new Air();;
 		System.out.println("Go RIGHT");
 	}
+	//move the player
+	public boolean moveTopPlayer(int x, int y) {
+		Entity enti = this.getTopEntity(x, y);
+		if(enti.getClass() == IDestroyable.class)
+		{
+			moveTop(x, y);
+			printMapConsol();
+			return true;
+		}
+		else
+		{
+			printMapConsol();
+			return false;
+		}
+	}
+	public boolean moveBotPlayer(int x, int y) {
+		Entity enti = this.getBotEntity(x, y);
+		if(enti.getClass() == IDestroyable.class)
+		{
+			moveBot(x, y);
+			printMapConsol();
+			return true;
+		}
+		else
+		{
+			printMapConsol();
+			return false;
+		}
+	}
+	public boolean moveLeftPlayer(int x, int y) {
+		Entity enti = this.getLeftEntity(x, y);
+		if(enti.getClass() == IDestroyable.class)
+		{
+			moveLeft(x, y);
+			printMapConsol();
+			return true;
+		}
+		else
+		{
+			printMapConsol();
+			return false;
+		}
+	}
+	public boolean moveRightPlayer(int x, int y) {
+		Entity enti = this.getRightEntity(x, y);
+		if(enti.getClass() == IDestroyable.class)
+		{
+			moveRight(x, y);
+			printMapConsol();
+			return true;
+		}
+		else
+		{
+			printMapConsol();
+			return false;
+		}
+	}
+
 	
+	
+	// by point
 	public void moveTop(Point pnt) {
 		moveTop(pnt.x,pnt.y);
 	}
@@ -109,6 +177,8 @@ public class Map {
 	public void moveRight(Point pnt) {
 		moveRight(pnt.x,pnt.y);
 	}
+	
+	
 	
 	public Point getPlayerLocation() {
 		Point pnt = null;
