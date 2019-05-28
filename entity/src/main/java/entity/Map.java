@@ -272,11 +272,11 @@ public class Map {
 		{
 			for(int x=width-1; x > 0; x--)
 			{
-				if(getEntity(x, y) instanceof IGravity)
+				if(getEntity(y, x) instanceof IGravity)
 				{
-					if(getBotEntity(x, y) instanceof Air)
+					if(getBotEntity(y, x) instanceof Air)
 					{
-						moveBot(x, y);
+						moveBot(y, x);
 						
 					}
 				}
@@ -284,7 +284,7 @@ public class Map {
 		}
 
 //		printMapConsol();
-		notifyAll();
+//		notifyAll();
 	}
 
 
@@ -301,7 +301,7 @@ public class Map {
 			{
 				for(int x=0; x < width; x++)
 				{
-					if(content[x][y].getClass() == Exit.class)
+					if(content[y][x].getClass() == Exit.class)
 					{
 						setOpen();
 					}

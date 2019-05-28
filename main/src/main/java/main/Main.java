@@ -29,6 +29,6 @@ public abstract class Main {
         view.setController(controller);
 
         controller.control();
-        controller.orderPerform(ControllerOrder.mapUN);
+        controller.orderPerform(ControllerOrder.mapTROIS);
     }
 }
