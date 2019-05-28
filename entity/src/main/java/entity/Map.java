@@ -82,6 +82,12 @@ public class Map {
 	public Entity getLeftEntity(int x, int y) {
 		return this.getEntity(x-1, y);
 	}
+	public Entity getLeftLeftEntity(int x, int y) {
+		return this.getEntity(x-2, y);
+	}
+	public Entity getRightRightEntity(int x, int y) {
+		return this.getEntity(x+2, y);
+	}
 	public Entity getRightEntity(int x, int y) {
 		return this.getEntity(x+1, y);
 	}
@@ -170,13 +176,30 @@ public class Map {
 			if(getLeftEntity(x, y) instanceof Diamond)
 			{
 				addDiamondNow();
+				moveLeft(x, y);
 			}
-			if(getLeftEntity(x, y) instanceof Exit && isOpen())
+			else if(getLeftEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				moveLeft(x, y);
 			}
-			moveLeft(x, y);
+			else if(getLeftEntity(x, y) instanceof Exit && !isOpen())
+			{
+				System.out.println("Door is not Open !");
+				return false;
+			}
+			else
+			{
+				moveLeft(x, y);
+			}
 			updateMap();
+			return true;
+		}
+		else if( (getLeftEntity(x, y) instanceof IMovable) && (getLeftLeftEntity(x, y) instanceof Air) )
+		{
+			moveLeft(x-1, y);
+			System.out.println("Move Left IMovable");
+			moveLeft(x, y);
 			return true;
 		}
 		else
@@ -192,13 +215,30 @@ public class Map {
 			if(getRightEntity(x, y) instanceof Diamond)
 			{
 				addDiamondNow();
+				moveRight(x, y);
 			}
-			if(getRightEntity(x, y) instanceof Exit && isOpen())
+			else if(getRightEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				moveRight(x, y);
 			}
-			moveRight(x, y);
+			else if(getRightEntity(x, y) instanceof Exit && !isOpen())
+			{
+				System.out.println("Door is not Open !");
+				return false;
+			}
+			else
+			{
+				moveRight(x, y);
+			}
 			updateMap();
+			return true;
+		}
+		else if( (getRightEntity(x, y) instanceof IMovable) && (getRightRightEntity(x, y) instanceof Air) )
+		{
+			moveRight(x+1, y);
+			System.out.println("Move Right IMovable");
+			moveRight(x, y);
 			return true;
 		}
 		else
