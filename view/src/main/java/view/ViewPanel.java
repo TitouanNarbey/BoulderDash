@@ -57,6 +57,7 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
+		
 	}
 
 	/*
@@ -102,6 +103,5 @@ class ViewPanel extends JPanel implements Observer {
 
 		System.out.println("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin());
 		System.out.println("Door : " + this.getViewFrame().getModel().getMap().isOpen());
-
 	}
 }

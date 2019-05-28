@@ -85,6 +85,12 @@ public class Map {
 	public Entity getRightEntity(int x, int y) {
 		return this.getEntity(x+1, y);
 	}
+	public Entity getLeftBotEntity(int x, int y) {
+		return this.getEntity(x-1, y+1);
+	}
+	public Entity getRightBotEntity(int x, int y) {
+		return this.getEntity(x+1, y+1);
+	}
 	public Entity getEntity(int x, int y) {
 		return this.content[x][y];
 	}
@@ -274,11 +280,39 @@ public class Map {
 			{
 				if(getEntity(y, x) instanceof IGravity)
 				{
+					
+					IGravity subject = (IGravity) content[y][x];
+					
 					if(getBotEntity(y, x) instanceof Air)
 					{
-						moveBot(y, x);
-						
+						subject.setFalling(true);
+						IGravity diam = (IGravity) content[y][x];//debug
+						System.out.println("isFalling ? : " + diam.isFalling());//debug
+						moveBot(y, x);//need to do at end
 					}
+					else if(getBotEntity(y, x) instanceof Player && subject.isFalling())
+					{
+						subject.setFalling(true);
+						killPlayer();
+						moveBot(y, x);//need to do at end
+					}
+					else if(getBotEntity(y, x) instanceof ISliding)
+					{
+						if( (getRightEntity(y, x) instanceof Air) && (getRightBotEntity(y, x) instanceof Air))
+						{
+							moveRight(y, x);
+						}
+						else if( (getLeftEntity(y, x) instanceof Air) && (getLeftBotEntity(y, x) instanceof Air))
+						{
+							moveLeft(y, x);
+						}
+					}
+					else
+					{
+						subject.setFalling(false);
+					}
+					
+					
 				}
 			}
 		}
@@ -320,5 +354,11 @@ public class Map {
 	}
 	public boolean isOpen() {
 		return open;
+	}
+	
+	public void killPlayer() {
+		System.out.println("Player is dead !");
+		
+		
 	}
 }
