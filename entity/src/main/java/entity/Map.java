@@ -1,6 +1,9 @@
 package entity;
 
+import java.awt.AWTException;
 import java.awt.Point;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 
 public class Map {
 	private int width;
@@ -357,8 +360,18 @@ public class Map {
 			}
 		}
 
-//		printMapConsol();
-//		notifyAll();
+		//		printMapConsol();
+		//		notifyAll();
+		Robot r;
+		try {
+			r = new Robot();
+			r.keyPress(KeyEvent.VK_ENTER);
+			r.keyRelease(KeyEvent.VK_ENTER);
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
+
 	}
 
 
