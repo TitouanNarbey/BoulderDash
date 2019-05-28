@@ -90,8 +90,10 @@ public class DAOMap {
 			rsResultset = stStatement.executeQuery(sqlRequestString);
 			// 5):
 			if (rsResultset.first()) {//on fait vraiment un while là, on est sencé avoir une seul route
-				int width = rsResultset.getInt("width");
-				int height = rsResultset.getInt("height");
+				int width = rsResultset.getInt("width");//y
+				System.out.println(width);
+				int height = rsResultset.getInt("height");//x
+				System.out.println(height);
 				int diamondToWin = rsResultset.getInt("diamond");
 				TEMP_map = new Map(width, height);
 				TEMP_map.setDiamondToWin(diamondToWin);
@@ -106,7 +108,7 @@ public class DAOMap {
 					for(int x=0; x < width; x++)
 					{
 						TEMP_map.setEntityOnTheMap(x, y, EntityFactory.getFromSymbol(TEMP_mapText_FromSQL.charAt(y*width + x)));//(y*width + x)
-						//System.out.println(y*width + x);
+						System.out.println(y*width + x);
 					}
 				}
 			}

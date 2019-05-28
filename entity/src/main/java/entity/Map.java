@@ -8,21 +8,27 @@ public class Map {
 	private int diamondToWin;
 	private int diamondNow;
 	boolean open = false;
-	private Entity[][] content;
+	private Entity[][] content;// [x][y]
 
 	public Map()
 	{
-		content = new Entity[1][1];
+		width = 1;
+		height = 1;
+		content = new Entity[width][height];
+		content[0][0] = new Air();
 	}
-	public Map(int width_, int height_)
+	public Map(int height_, int width_)
 	{
 		width = width_;
 		height = height_;
-		content = new Entity[height_][width_];
+		content = new Entity[height][width];
 	}
 	
 	public int getDiamondToWin() {
 		return diamondToWin;
+	}
+	public int getDiamondNow() {
+		return diamondNow;
 	}
 	public int getWidth() {
 		return width;
@@ -232,9 +238,9 @@ public class Map {
 		{
 			for(int x=0; x < width; x++)
 			{
-				if(content[x][y].getClass() == /*Player.class*/SpawnPoint.class)
+				if(content[y][x].getClass() == /*Player.class*/SpawnPoint.class)
 				{
-					pnt = new Point(x,y);
+					pnt = new Point(y,x);
 					System.out.println("SpawnPoint found : " + x + " " + y);
 				}
 			}
@@ -246,20 +252,20 @@ public class Map {
 		content[x_][y_] = entity_;
 	}
 	
-	//temp Titouan le 26.05.2019 15:58
-	public void printMapConsol() {
-		System.out.println();
-		for(int y=0; y < height; y++)
-		{
-			for(int x=0; x < width; x++)
-			{
-				System.out.print(content[x][y].getSprite().getConsoleImage());
-			}
-			System.out.println();
-		}
-		System.out.println("Nb diamond : " + diamondNow + "/" + diamondToWin);
-		System.out.println("Door : " + isOpen());
-	}
+//	//temp Titouan le 26.05.2019 15:58
+//	public void printMapConsol() {
+//		System.out.println();
+//		for(int y=0; y < height; y++)
+//		{
+//			for(int x=0; x < width; x++)
+//			{
+//				System.out.print(content[x][y].getSprite().getConsoleImage());
+//			}
+//			System.out.println();
+//		}
+//		System.out.println("Nb diamond : " + diamondNow + "/" + diamondToWin);
+//		System.out.println("Door : " + isOpen());
+//	}
 
 	public void updateMap() {
 		for(int y=height-1; y > 0; y--)
@@ -277,7 +283,8 @@ public class Map {
 			}
 		}
 
-		printMapConsol();
+//		printMapConsol();
+		notifyAll();
 	}
 
 

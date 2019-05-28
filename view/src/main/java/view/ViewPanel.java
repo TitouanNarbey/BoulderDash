@@ -70,32 +70,38 @@ class ViewPanel extends JPanel implements Observer {
 
 		//		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
 		//		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 25, 40);
-		
+
+		if(this.getViewFrame().getModel().getMap().getHeight() > 1 && this.getViewFrame().getModel().getMap().getWidth() > 1)
+		{
 			for(int y=0; y < this.getViewFrame().getModel().getMap().getHeight(); y++)
 			{
 				for(int x=0; x < this.getViewFrame().getModel().getMap().getWidth(); x++)
 				{
-//					System.out.println(y + " : " + x);
-//					System.out.println(this.getViewFrame().getModel().getMap().getHeight());
-//					System.out.println(this.getViewFrame().getModel().getMap().getWidth());
-//					System.out.println(this.getViewFrame().getModel().getMap().getContent()[x][y].getSprite().getImageName());
-//					
+					System.out.println(y + " : " + x);
+					System.out.println(y*this.getViewFrame().getModel().getMap().getWidth() + x);
+					System.out.println(this.getViewFrame().getModel().getMap().getHeight());
+					System.out.println(this.getViewFrame().getModel().getMap().getWidth());
+					System.out.println(this.getViewFrame().getModel().getMap().getEntity(y, x).getSprite().getImageName());		
 					try {
-					this.getViewFrame().getModel().getMap().getContent()[x][y].getSprite().loadImage();
+						this.getViewFrame().getModel().getMap().getEntity(y, x).getSprite().loadImage();
 					} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+						e.printStackTrace();
+					}
 				}
 			}
-		
-		for(int y=0; y < this.getViewFrame().getModel().getMap().getHeight(); y++)
-		{
-			for(int x=0; x < this.getViewFrame().getModel().getMap().getWidth(); x++)
+
+			for(int x=0; x < this.getViewFrame().getModel().getMap().getHeight(); x++)
 			{
-				graphics.drawImage(this.getViewFrame().getModel().getMap().getContent()[x][y].getSprite().getImage(), x*16, y*16, this);
+				for(int y=0; y < this.getViewFrame().getModel().getMap().getWidth(); y++)
+				{
+					graphics.drawImage(this.getViewFrame().getModel().getMap().getEntity(x, y).getSprite().getImage(), x*16, y*16, this);
+				}
 			}
 		}
+		
+
+		System.out.println("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin());
+		System.out.println("Door : " + this.getViewFrame().getModel().getMap().isOpen());
 
 	}
 }

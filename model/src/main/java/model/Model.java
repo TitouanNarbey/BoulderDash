@@ -106,7 +106,8 @@ public final class Model extends Observable implements IModel {
 		final DAOMap daoMap = new DAOMap();
 		this.setMap(daoMap.find(code));
 		//debug
-		map.printMapConsol();
+//		map.printMapConsol();
+		
 		//
 	}
 	
