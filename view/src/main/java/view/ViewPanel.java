@@ -29,6 +29,7 @@ class ViewPanel extends JPanel implements Observer {
 	public ViewPanel(final ViewFrame viewFrame) {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
+		viewFrame.getModel().getMap().addObserver(this);
 	}
 
 	/**
@@ -103,5 +104,7 @@ class ViewPanel extends JPanel implements Observer {
 
 		System.out.println("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin());
 		System.out.println("Door : " + this.getViewFrame().getModel().getMap().isOpen());
+		viewFrame.getModel().getMap().addObserver(this);
 	}
+	
 }

@@ -2,10 +2,10 @@ package entity;
 
 import java.awt.AWTException;
 import java.awt.Point;
-import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.util.Observable;
 
-public class Map {
+public class Map extends Observable {
 	private int width;
 	private int height;
 	private int diamondToWin;
@@ -360,17 +360,8 @@ public class Map {
 			}
 		}
 
-		//		printMapConsol();
-		//		notifyAll();
-		Robot r;
-		try {
-			r = new Robot();
-			r.keyPress(KeyEvent.VK_ENTER);
-			r.keyRelease(KeyEvent.VK_ENTER);
-		} catch (AWTException e) {
-			e.printStackTrace();
-		}
-
+		setChanged();
+		notifyObservers();
 
 	}
 
