@@ -17,8 +17,12 @@ public class EntityFactory {
     /** The Constant exit. */
     private static final Exit  EXIT  = new Exit();
 
-    /** The Constant monster. */
-    private static final Monster               MONSTER                = new Monster();
+    /** The Constant octopus. */
+    private static final Octopus                OCTOPUS                 = new Octopus();
+    /** The Constant bat. */
+    private static final Bat               		BAT                		= new Bat();
+    /** The Constant butterfly. */
+    private static final Butterfly              BUTTERFLY               = new Butterfly();
 
     /** The Constant player. */
     private static final Player             PLAYER             = new Player();
@@ -38,7 +42,9 @@ public class EntityFactory {
     		DIAMOND,
     		DIRT,
     		EXIT,
-    		MONSTER,
+    		OCTOPUS,
+    		BAT,
+    		BUTTERFLY,
     		PLAYER,
     		ROCK, 
     		SPAWNPOINT};
@@ -93,9 +99,17 @@ public class EntityFactory {
      *
      * @return the motionless element
      */
-    public static Entity createMonster() {
-        return MONSTER;
+    public static Entity createBat() {
+        return BAT;
     }
+    public static Entity createButterfly() {
+        return BUTTERFLY;
+    }
+
+    public static Entity createOctopus() {
+        return OCTOPUS;
+    }
+
 
     /**
      * Creates a new macadam object.
@@ -140,3 +154,4 @@ public class EntityFactory {
         return AIR;
     }
 }
+
