@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.mysql.jdbc.CallableStatement;
+
 import entity.EntityFactory;
 import entity.Map;
 
@@ -71,10 +73,10 @@ public class DAOMap {
 		String loginString = "root";
 		String passwdString = "";
 		Connection cnConnection = null;
-		Statement stStatement = null;
+		CallableStatement stStatement = null;
 		ResultSet rsResultset = null;
 
-		String sqlRequestString = "SELECT * FROM map WHERE `ID` = " + id;
+		String sqlRequestString = "{call MapByID(?)}";
 		/////////////////////////////////////
 		
 		Map TEMP_map = new Map();
@@ -85,9 +87,11 @@ public class DAOMap {
 			// 2): Connexion
 			cnConnection = DriverManager.getConnection(urlString, loginString, passwdString);
 			// 3): creation du statement (jsp ce que c'est)
-			stStatement = cnConnection.createStatement();
+			stStatement = (CallableStatement) cnConnection.prepareCall(sqlRequestString);
+			stStatement.setInt(1, id);
+			stStatement.execute();
 			// 4): execute requete
-			rsResultset = stStatement.executeQuery(sqlRequestString);
+			rsResultset = stStatement.getResultSet();
 			// 5):
 			if (rsResultset.first()) {//on fait vraiment un while là, on est sencé avoir une seul route
 				int width = rsResultset.getInt("width");//y
