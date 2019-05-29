@@ -376,8 +376,7 @@ public class Map extends Observable {
 				}
 			}
 		}
-
-		System.out.println("Map updated !");  
+ 
 		setChanged();
 		notifyObservers();
 
