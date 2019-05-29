@@ -338,9 +338,9 @@ public class Map extends Observable {
 		{
 			for(int x=width-1; x > 0; x--)
 			{
+				/////   Rock   /////
 				if(getEntity(y, x) instanceof IGravity)
 				{
-					
 					IGravity subject = (IGravity) content[y][x];
 					
 					if(getBotEntity(y, x) instanceof Air)
@@ -374,6 +374,14 @@ public class Map extends Observable {
 					
 					
 				}
+				/////////////////////////
+				
+				/////   Monster   /////
+				if(getEntity(y, x) instanceof Monster)
+				{
+					
+				}
+				/////////////////////////
 			}
 		}
  
@@ -419,8 +427,36 @@ public class Map extends Observable {
 	
 	public void killPlayer() {
 		System.out.println("Player is dead !");
-		
-		
+		explode(getPlayerLocation());
+	}
+	
+	public void explode(int y_, int x_) {
+		content[y_][x_] = new Air();
+		content[y_+1][x_] = new Air();
+		content[y_-1][x_] = new Air();
+		content[y_][x_+1] = new Air();
+		content[y_][x_-1] = new Air();
+		content[y_+1][x_+1] = new Air();
+		content[y_+1][x_-1] = new Air();
+		content[y_-1][x_+1] = new Air();
+		content[y_-1][x_-1] = new Air();
+	}
+	public void explode(Point pnt) {
+		explode(pnt.x,pnt.y);
+	}
+	public void explodeDiamond(int x_, int y_) {
+		content[x_][y_] = new Air();
+		content[x_+1][y_] = new Air();
+		content[x_-1][y_] = new Air();
+		content[x_][y_+1] = new Air();
+		content[x_][y_-1] = new Air();
+		content[x_+1][y_+1] = new Air();
+		content[x_+1][y_-1] = new Air();
+		content[x_-1][y_+1] = new Air();
+		content[x_-1][y_-1] = new Air();
+	}
+	public void explodeDiamond(Point pnt) {
+		explodeDiamond(pnt.x,pnt.y);
 	}
 
 }
