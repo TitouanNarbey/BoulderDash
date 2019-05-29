@@ -1,9 +1,11 @@
 package entity;
 
-import java.awt.AWTException;
 import java.awt.Point;
-import java.awt.event.KeyEvent;
 import java.util.Observable;
+import java.util.Observer;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.*;
 
 public class Map extends Observable {
 	private int width;
@@ -12,9 +14,22 @@ public class Map extends Observable {
 	private int diamondNow;
 	boolean open = false;
 	private Entity[][] content;// [x][y]
+	
+	//timer
+    // creating timer task, timer
+	TimerTask task = new TimerTask() {
+        public void run() {
+            updateMap();
+        }
+    };
+    Timer timer;
+    
+    public Map()
+    {
+    	timer = new Timer();
+    	// scheduling the task at interval
 
-	public Map()
-	{
+
 		width = 1;
 		height = 1;
 		content = new Entity[width][height];
@@ -22,6 +37,8 @@ public class Map extends Observable {
 	}
 	public Map(int height_, int width_)
 	{
+		timer = new Timer();
+    	timer.schedule(task,200, 200);
 		width = width_;
 		height = height_;
 		content = new Entity[height][width];
@@ -360,6 +377,7 @@ public class Map extends Observable {
 			}
 		}
 
+		System.out.println("Map updated !");  
 		setChanged();
 		notifyObservers();
 
@@ -405,4 +423,5 @@ public class Map extends Observable {
 		
 		
 	}
+
 }
