@@ -8,7 +8,19 @@ import java.util.Observer;
 
 import javax.swing.JPanel;
 
+import entity.Air;
+import entity.Bat;
+import entity.Border;
+import entity.Butterfly;
+import entity.Diamond;
+import entity.Dirt;
+import entity.Entity;
 import entity.EntityFactory;
+import entity.Exit;
+import entity.Octopus;
+import entity.Player;
+import entity.Rock;
+import entity.SpawnPoint;
 
 /**
  * The Class ViewPanel.
@@ -86,11 +98,7 @@ class ViewPanel extends JPanel implements Observer {
 				{
 					if(!first)
 					{
-						try {
-							this.getViewFrame().getModel().getMap().getEntity(y, x).getSprite().loadImage();
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+						loadAllImages();
 					}
 
 					graphics.drawImage(this.getViewFrame().getModel().getMap().getEntity(y, x).getSprite().getImage(), y*32, x*32, this);
@@ -107,5 +115,76 @@ class ViewPanel extends JPanel implements Observer {
 			viewFrame.getModel().getMap().addObserver(this);
 		}
 
+	}
+	
+	private void loadAllImages() {
+		Entity temp_entity;
+		
+		temp_entity = new Air();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Border();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Diamond();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Dirt();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Exit();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Octopus();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Bat();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Butterfly();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Player();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new Rock();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		temp_entity = new SpawnPoint();
+		try {
+			temp_entity.getSprite().loadImage();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

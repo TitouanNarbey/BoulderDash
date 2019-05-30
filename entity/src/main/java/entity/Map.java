@@ -1,11 +1,13 @@
 package entity;
 
+import java.awt.AWTException;
 import java.awt.Point;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.Observable;
-import java.util.Observer;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Map extends Observable {
 	private int width;
@@ -350,10 +352,17 @@ public class Map extends Observable {
 						System.out.println("isFalling ? : " + diam.isFalling());//debug
 						moveBot(y, x);//need to do at end
 					}
-					else if(getBotEntity(y, x) instanceof Player && subject.isFalling())
+					else if(getBotEntity(y, x) instanceof SpawnPoint && subject.isFalling())
 					{
 						subject.setFalling(true);
 						killPlayer();
+						moveBot(y, x);//need to do at end
+					}
+					else if(getBotEntity(y, x) instanceof Monster && subject.isFalling())
+					{
+						subject.setFalling(true);
+						explodeDiamond(y, x+1);
+						System.out.println("Kill Monster !");
 						moveBot(y, x);//need to do at end
 					}
 					else if(getBotEntity(y, x) instanceof ISliding)
@@ -428,6 +437,24 @@ public class Map extends Observable {
 	public void killPlayer() {
 		System.out.println("Player is dead !");
 		explode(getPlayerLocation());
+		setChanged();
+		notifyObservers();
+		
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Robot r;
+		try {
+			r = new Robot();
+			r.keyPress(KeyEvent.VK_1);
+			r.keyRelease(KeyEvent.VK_1);
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void explode(int y_, int x_) {
