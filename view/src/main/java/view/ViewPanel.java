@@ -34,7 +34,6 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
-	boolean first;
 
 	/**
 	 * Instantiates a new view panel.
@@ -46,7 +45,7 @@ class ViewPanel extends JPanel implements Observer {
 		this.setViewFrame(viewFrame);
 		viewFrame.getModel().getObservable().addObserver(this);
 		viewFrame.getModel().getMap().addObserver(this);
-		first = false;
+		loadAllImages();
 	}
 
 	/**
@@ -96,17 +95,9 @@ class ViewPanel extends JPanel implements Observer {
 			{
 				for(int x=0; x < this.getViewFrame().getModel().getMap().getWidth(); x++)
 				{
-					if(!first)
-					{
-						loadAllImages();
-					}
-
 					graphics.drawImage(this.getViewFrame().getModel().getMap().getEntity(y, x).getSprite().getImage(), y*32, x*32, this);
 				}
 			}
-			first = true;
-
-
 
 			graphics.drawString("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), 1600, 650);
 			graphics.drawString("Door : " + this.getViewFrame().getModel().getMap().isOpen(), 100, 100);

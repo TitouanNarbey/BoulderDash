@@ -16,6 +16,7 @@ public class Map extends Observable {
 	private int diamondNow;
 	boolean open = false;
 	private Entity[][] content;// [x][y]
+	Direction nextPlayerDirection = Direction.NOTHING;
 	
 	//timer
     // creating timer task, timer
@@ -160,12 +161,10 @@ public class Map extends Observable {
 				System.out.println("Win !");
 			}
 			moveTop(x, y);
-			updateMap();
 			return true;
 		}
 		else
 		{
-			updateMap();
 			return false;
 		}
 	}
@@ -182,12 +181,10 @@ public class Map extends Observable {
 				System.out.println("Win !");
 			}
 			moveBot(x, y);
-			updateMap();
 			return true;
 		}
 		else
 		{
-			updateMap();
 			return false;
 		}
 	}
@@ -214,7 +211,6 @@ public class Map extends Observable {
 			{
 				moveLeft(x, y);
 			}
-			updateMap();
 			return true;
 		}
 		else if( (getLeftEntity(x, y) instanceof IMovable) && (getLeftLeftEntity(x, y) instanceof Air) )
@@ -226,7 +222,6 @@ public class Map extends Observable {
 		}
 		else
 		{
-			updateMap();
 			return false;
 		}
 	}
@@ -253,7 +248,6 @@ public class Map extends Observable {
 			{
 				moveRight(x, y);
 			}
-			updateMap();
 			return true;
 		}
 		else if( (getRightEntity(x, y) instanceof IMovable) && (getRightRightEntity(x, y) instanceof Air) )
@@ -265,7 +259,6 @@ public class Map extends Observable {
 		}
 		else
 		{
-			updateMap();
 			return false;
 		}
 	}
@@ -306,7 +299,7 @@ public class Map extends Observable {
 		{
 			for(int x=0; x < width; x++)
 			{
-				if(content[y][x].getClass() == /*Player.class*/SpawnPoint.class)
+				if(content[y][x].getClass() == SpawnPoint.class)
 				{
 					pnt = new Point(y,x);
 					System.out.println("SpawnPoint found : " + x + " " + y);
@@ -336,6 +329,39 @@ public class Map extends Observable {
 //	}
 
 	public void updateMap() {
+		/////   Player   /////
+		switch (nextPlayerDirection) 
+		{
+		case RIGHT:
+			System.out.println("Right");//debug
+			moveRightPlayer(getPlayerLocation());
+			setNextPlayerDirection(Direction.NOTHING);
+			break;
+		case LEFT:
+			System.out.println("Left");//debug
+			moveLeftPlayer(getPlayerLocation());
+			setNextPlayerDirection(Direction.NOTHING);
+			break;
+		case TOP:
+			System.out.println("Top");//debug
+			moveTopPlayer(getPlayerLocation());
+			setNextPlayerDirection(Direction.NOTHING);
+			break;
+		case BOT:
+			System.out.println("Bot");//debug
+			moveBotPlayer(getPlayerLocation());
+			setNextPlayerDirection(Direction.NOTHING);
+			break;
+			
+		case NOTHING:
+			System.out.println("Nothing to do");//debug
+			break;
+
+		default:
+			break;
+		}
+		//////////////////////
+		
 		for(int y=height-1; y > 0; y--)
 		{
 			for(int x=width-1; x > 0; x--)
@@ -472,18 +498,21 @@ public class Map extends Observable {
 		explode(pnt.x,pnt.y);
 	}
 	public void explodeDiamond(int x_, int y_) {
-		content[x_][y_] = new Air();
-		content[x_+1][y_] = new Air();
-		content[x_-1][y_] = new Air();
-		content[x_][y_+1] = new Air();
-		content[x_][y_-1] = new Air();
-		content[x_+1][y_+1] = new Air();
-		content[x_+1][y_-1] = new Air();
-		content[x_-1][y_+1] = new Air();
-		content[x_-1][y_-1] = new Air();
+		content[x_][y_] = new Diamond();
+		content[x_+1][y_] = new Diamond();
+		content[x_-1][y_] = new Diamond();
+		content[x_][y_+1] = new Diamond();
+		content[x_][y_-1] = new Diamond();
+		content[x_+1][y_+1] = new Diamond();
+		content[x_+1][y_-1] = new Diamond();
+		content[x_-1][y_+1] = new Diamond();
+		content[x_-1][y_-1] = new Diamond();
 	}
 	public void explodeDiamond(Point pnt) {
 		explodeDiamond(pnt.x,pnt.y);
 	}
 
+	public void setNextPlayerDirection(Direction dir_) {
+		nextPlayerDirection = dir_;
+	}
 }

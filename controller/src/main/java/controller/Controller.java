@@ -9,6 +9,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.Direction;
 
 /**
  * The Class Controller.
@@ -93,19 +94,19 @@ public final class Controller implements IController{
 				break;
 			case Z:
 				System.out.println("Z");//debug
-				this.model.getMap().moveTopPlayer(this.model.getMap().getPlayerLocation());
+				this.model.getMap().setNextPlayerDirection(Direction.TOP);
 				break;
 			case Q:
 				System.out.println("Q");
-				this.model.getMap().moveLeftPlayer(this.model.getMap().getPlayerLocation());
+				this.model.getMap().setNextPlayerDirection(Direction.LEFT);
 				break;
 			case S:
 				System.out.println("S");
-				this.model.getMap().moveBotPlayer(this.model.getMap().getPlayerLocation());
+				this.model.getMap().setNextPlayerDirection(Direction.BOT);
 				break;
 			case D:
 				System.out.println("D");
-				this.model.getMap().moveRightPlayer(this.model.getMap().getPlayerLocation());
+				this.model.getMap().setNextPlayerDirection(Direction.RIGHT);
 				break;
 			case mapUN:
 				this.model.loadMap(1);
