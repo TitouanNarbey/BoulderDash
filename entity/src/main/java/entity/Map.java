@@ -404,7 +404,7 @@ public class Map extends Observable {
 		{
 			for(int x=width-1; x >= 0; x--)
 			{
-				System.out.println(y*height + x);//debug
+//				System.out.println(y*height + x);//debug
 				
 //				if( (getEntity(y, x).getHasDoAction()) == false )
 				{
@@ -476,9 +476,47 @@ public class Map extends Observable {
 					/////////////////////////
 
 					/////   Monster   /////
-					if(getEntity(y, x) instanceof Monster)
+					if(getEntity(y, x) instanceof Monster && !(getEntity(y, x).getHasDoAction()) )
 					{
-
+						if(getEntity(y, x) instanceof Octopus)
+						{
+							Octopus subject = (Octopus) getEntity(y, x);
+							if(subject.getDirection() == Direction.TOP)
+							{
+								getEntity(y, x).setHasDoAction(true);
+								if(getTopEntity(y, x) instanceof Air)
+								{
+									moveTop(y, x);
+								}
+								else if(getTopEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								else
+								{
+									subject.switchDirection();
+								}
+							}
+							else if(subject.getDirection() == Direction.BOT)
+							{
+								if(getBotEntity(y, x) instanceof Air)
+								{
+									moveBot(y, x);
+								}
+								else if(getBotEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								else
+								{
+									subject.switchDirection();
+								}
+							}
+							else
+							{
+								System.out.println("ERROR MOUVEMENT OCTOPUS");
+							}
+						}
 					}
 					/////////////////////////
 					
