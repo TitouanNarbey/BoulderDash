@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.Graphics;
-import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -15,7 +14,6 @@ import entity.Butterfly;
 import entity.Diamond;
 import entity.Dirt;
 import entity.Entity;
-import entity.EntityFactory;
 import entity.Exit;
 import entity.Octopus;
 import entity.Player;

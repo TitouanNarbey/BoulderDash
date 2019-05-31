@@ -1,10 +1,5 @@
 package controller;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-
-import javax.swing.text.View;
-
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;

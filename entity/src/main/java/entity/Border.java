@@ -1,6 +1,5 @@
 package entity;
 
-import java.io.IOException;
 
 public class Border extends Block implements ISliding{
 
