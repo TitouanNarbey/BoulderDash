@@ -93,19 +93,19 @@ public final class Controller implements IController{
 				this.model.loadHelloWorld("ID");
 				break;
 			case Z:
-				System.out.println("Z");//debug
+//				System.out.println("Z");//debug
 				this.model.getMap().setNextPlayerDirection(Direction.TOP);
 				break;
 			case Q:
-				System.out.println("Q");
+//				System.out.println("Q");
 				this.model.getMap().setNextPlayerDirection(Direction.LEFT);
 				break;
 			case S:
-				System.out.println("S");
+//				System.out.println("S");
 				this.model.getMap().setNextPlayerDirection(Direction.BOT);
 				break;
 			case D:
-				System.out.println("D");
+//				System.out.println("D");
 				this.model.getMap().setNextPlayerDirection(Direction.RIGHT);
 				break;
 			case mapUN:

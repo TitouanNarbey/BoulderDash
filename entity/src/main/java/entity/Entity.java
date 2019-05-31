@@ -7,9 +7,11 @@ package entity;
  */
 public abstract class Entity {
 	private Sprite sprite;
+	boolean hasDoAction;
 	
     public Entity(final Sprite sprite_) {
         this.setSprite(sprite_);
+        hasDoAction = false;
     }
 	
     /**
@@ -29,6 +31,15 @@ public abstract class Entity {
      */
     private void setSprite(final Sprite sprite) {
         this.sprite = sprite;
+    }
+    
+    public void setHasDoAction(boolean act_) {
+    	hasDoAction = act_;
+//		System.out.println("action set to :" + hasDoAction);
+    }
+    public boolean getHasDoAction() {
+//		System.out.println("return hasDoAction : " + hasDoAction);
+    	return hasDoAction;
     }
 	
 }

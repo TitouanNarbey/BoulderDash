@@ -102,6 +102,9 @@ public class Map extends Observable {
 	public Entity getBotEntity(int x, int y) {
 		return this.getEntity(x, y+1);
 	}
+	public Entity getBotBotEntity(int x, int y) {
+		return this.getEntity(x, y+2);
+	}
 	public Entity getLeftEntity(int x, int y) {
 		return this.getEntity(x-1, y);
 	}
@@ -155,12 +158,22 @@ public class Map extends Observable {
 			if(getTopEntity(x, y) instanceof Diamond)
 			{
 				addDiamondNow();
+				moveTop(x, y);
 			}
-			if(getBotEntity(x, y) instanceof Exit && isOpen())
+			else if(getTopEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				moveTop(x, y);
 			}
-			moveTop(x, y);
+			else if(getTopEntity(x, y) instanceof Exit && !isOpen())
+			{
+				System.out.println("Door is not Open !");
+				return false;
+			}
+			else
+			{
+				moveTop(x, y);
+			}
 			return true;
 		}
 		else
@@ -175,12 +188,22 @@ public class Map extends Observable {
 			if(getBotEntity(x, y) instanceof Diamond)
 			{
 				addDiamondNow();
+				moveBot(x, y);
 			}
-			if(getBotEntity(x, y) instanceof Exit && isOpen())
+			else if(getBotEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				moveBot(x, y);
 			}
-			moveBot(x, y);
+			else if(getBotEntity(x, y) instanceof Exit && !isOpen())
+			{
+				System.out.println("Door is not Open !");
+				return false;
+			}
+			else
+			{
+				moveBot(x, y);
+			}
 			return true;
 		}
 		else
@@ -302,7 +325,7 @@ public class Map extends Observable {
 				if(content[y][x].getClass() == SpawnPoint.class)
 				{
 					pnt = new Point(y,x);
-					System.out.println("SpawnPoint found : " + x + " " + y);
+//					System.out.println("SpawnPoint found : " + x + " " + y);
 				}
 			}
 		}
@@ -354,71 +377,123 @@ public class Map extends Observable {
 			break;
 			
 		case NOTHING:
-			System.out.println("Nothing to do");//debug
+//			System.out.println("Nothing to do");//debug
 			break;
 
 		default:
 			break;
 		}
 		//////////////////////
+//		try {
+//			TimeUnit.MILLISECONDS.sleep(500);
+//		} catch (InterruptedException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 		
-		for(int y=height-1; y > 0; y--)
+		//reset des hasDoAction
+		for(int y=height-1; y >= 0; y--)
 		{
-			for(int x=width-1; x > 0; x--)
+			for(int x=width-1; x >= 0; x--)
 			{
-				/////   Rock   /////
-				if(getEntity(y, x) instanceof IGravity)
-				{
-					IGravity subject = (IGravity) content[y][x];
-					
-					if(getBotEntity(y, x) instanceof Air)
-					{
-						subject.setFalling(true);
-						IGravity diam = (IGravity) content[y][x];//debug
-						System.out.println("isFalling ? : " + diam.isFalling());//debug
-						moveBot(y, x);//need to do at end
-					}
-					else if(getBotEntity(y, x) instanceof SpawnPoint && subject.isFalling())
-					{
-						subject.setFalling(true);
-						killPlayer();
-						moveBot(y, x);//need to do at end
-					}
-					else if(getBotEntity(y, x) instanceof Monster && subject.isFalling())
-					{
-						subject.setFalling(true);
-						explodeDiamond(y, x+1);
-						System.out.println("Kill Monster !");
-						moveBot(y, x);//need to do at end
-					}
-					else if(getBotEntity(y, x) instanceof ISliding)
-					{
-						if( (getRightEntity(y, x) instanceof Air) && (getRightBotEntity(y, x) instanceof Air))
-						{
-							moveRight(y, x);
-						}
-						else if( (getLeftEntity(y, x) instanceof Air) && (getLeftBotEntity(y, x) instanceof Air))
-						{
-							moveLeft(y, x);
-						}
-					}
-					else
-					{
-						subject.setFalling(false);
-					}
-					
-					
-				}
-				/////////////////////////
-				
-				/////   Monster   /////
-				if(getEntity(y, x) instanceof Monster)
-				{
-					
-				}
-				/////////////////////////
+				getEntity(y, x).setHasDoAction(false);
 			}
 		}
+		
+		for(int y=height-1; y >= 0; y--)
+		{
+			for(int x=width-1; x >= 0; x--)
+			{
+				System.out.println(y*height + x);//debug
+				
+//				if( (getEntity(y, x).getHasDoAction()) == false )
+				{
+					/////   Rock   /////
+//					System.out.println("HasDoAction : " + getEntity(y, x).getHasDoAction());
+					if( (getEntity(y, x) instanceof IGravity) && !(getEntity(y, x).getHasDoAction()) )
+					{
+						IGravity subject = (IGravity) getEntity(y, x);
+
+						if(getBotEntity(y, x) instanceof Air)
+						{
+							System.out.println("Air");
+							subject.setFalling(true);
+							//						IGravity diam = (IGravity) content[y][x];//debug
+							//						System.out.println("isFalling ? : " + diam.isFalling());//debug
+							getEntity(y, x).setHasDoAction(true);
+							moveBot(y, x);//need to do at end
+							
+							//death verification
+							if((getBotBotEntity(y, x).getClass() == SpawnPoint.class))
+							{
+								killPlayer();
+							}
+							else if((getBotBotEntity(y, x) instanceof Monster))
+							{
+								explodeDiamond(y,x+2);
+							}
+						}
+						else if( (getBotEntity(y, x).getClass() == SpawnPoint.class) && (subject.isFalling()) )
+						{
+							System.out.println("Kill the Player !");
+							System.out.println("|||||||||||||||||||||||||||");
+							System.out.println("|||||||||||||||||||||||||||");
+							System.out.println("|||||||||||||||||||||||||||");
+							killPlayer();
+							subject.setFalling(true);
+							getEntity(y, x).setHasDoAction(true);
+							moveBot(y, x);//need to do at end
+						}
+						else if( (getBotEntity(y, x) instanceof Monster) && (subject.isFalling()) )
+						{
+							subject.setFalling(true);
+							explodeDiamond(y, x+1);
+							System.out.println("Kill Monster !");
+							System.out.println("|||||||||||||||||||||||||||");
+							System.out.println("|||||||||||||||||||||||||||");
+							System.out.println("|||||||||||||||||||||||||||");
+							getEntity(y, x).setHasDoAction(true);
+							moveBot(y, x);//need to do at end
+						}
+						else if(getBotEntity(y, x) instanceof ISliding)
+						{
+							if( (getRightEntity(y, x) instanceof Air) && (getRightBotEntity(y, x) instanceof Air || getRightBotEntity(y, x) instanceof Monster || getRightBotEntity(y, x) instanceof SpawnPoint))
+							{
+								subject.setFalling(true);
+								System.out.println("Slide");
+								getEntity(y, x).setHasDoAction(true);
+								moveRight(y, x);
+							}
+							else if( (getLeftEntity(y, x) instanceof Air) && (getLeftBotEntity(y, x) instanceof Air || getLeftBotEntity(y, x) instanceof Monster || getLeftBotEntity(y, x) instanceof SpawnPoint))
+							{
+								subject.setFalling(true);
+								System.out.println("Slide");
+								getEntity(y, x).setHasDoAction(true);
+								moveLeft(y, x);
+							}
+						}
+						else
+						{
+							subject.setFalling(false);
+//							System.out.println("ROCK NO MOVE");
+						}
+
+					}
+					/////////////////////////
+
+					/////   Monster   /////
+					if(getEntity(y, x) instanceof Monster)
+					{
+
+					}
+					/////////////////////////
+					
+				}
+
+			}
+		}
+
+
  
 		setChanged();
 		notifyObservers();

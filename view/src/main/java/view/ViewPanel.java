@@ -99,10 +99,10 @@ class ViewPanel extends JPanel implements Observer {
 				}
 			}
 
-			graphics.drawString("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), 1600, 650);
-			graphics.drawString("Door : " + this.getViewFrame().getModel().getMap().isOpen(), 100, 100);
-			System.out.println("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin());
-			System.out.println("Door : " + this.getViewFrame().getModel().getMap().isOpen());
+//			graphics.drawString("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), 1600, 650);
+//			graphics.drawString("Door : " + this.getViewFrame().getModel().getMap().isOpen(), 100, 100);
+//			System.out.println("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin());
+//			System.out.println("Door : " + this.getViewFrame().getModel().getMap().isOpen());
 			viewFrame.getModel().getMap().addObserver(this);
 		}
 
