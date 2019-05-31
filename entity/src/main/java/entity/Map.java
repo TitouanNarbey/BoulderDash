@@ -483,10 +483,10 @@ public class Map extends Observable {
 						/////   Octopus   /////
 						if(getEntity(y, x) instanceof Octopus)
 						{
+							getEntity(y, x).setHasDoAction(true);
 							Octopus subject = (Octopus) getEntity(y, x);
 							if(subject.getDirection() == Direction.TOP)
 							{
-								getEntity(y, x).setHasDoAction(true);
 								if(getTopEntity(y, x) instanceof Air)
 								{
 									moveTop(y, x);
@@ -520,6 +520,7 @@ public class Map extends Observable {
 								System.out.println("ERROR MOUVEMENT OCTOPUS");
 							}
 						}
+						/////   Bat   /////
 						else if(getEntity(y, x) instanceof Bat)
 						{
 							getEntity(y, x).setHasDoAction(true);
@@ -569,6 +570,96 @@ public class Map extends Observable {
 
 							default:
 								System.out.println("ERROR on random number for bat in map");
+								break;
+							}
+							
+						}
+						/////   Butterfly   /////
+						else if(getEntity(y, x) instanceof Butterfly)
+						{
+							getEntity(y, x).setHasDoAction(true);
+							Butterfly subject = (Butterfly) getEntity(y, x);
+							
+							switch(subject.getLastWallTouched())
+							{
+							case TOP:
+								if(getTopEntity(y, x) instanceof Air)
+								{
+									moveTop(y, x);
+//									subject.cycleReverseLastWallTouched();
+								}
+								else if(getLeftEntity(y, x) instanceof Air)
+								{
+									moveLeft(y, x);
+								}
+								else if(getLeftEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								else
+								{
+									subject.cycleLastWallTouched();
+								}
+								break;
+							case LEFT:
+								if(getLeftEntity(y, x) instanceof Air)
+								{
+									moveLeft(y, x);
+//									subject.cycleReverseLastWallTouched();
+								}
+								else if(getBotEntity(y, x) instanceof Air)
+								{
+									moveBot(y, x);
+								}
+								else if(getBotEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								else
+								{
+									subject.cycleLastWallTouched();
+								}
+								break;
+							case BOT:
+								if(getBotEntity(y, x) instanceof Air)
+								{
+									moveBot(y, x);
+//									subject.cycleReverseLastWallTouched();
+								}
+								else if(getRightEntity(y, x) instanceof Air)
+								{
+									moveRight(y, x);
+								}
+								else if(getRightEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								else
+								{
+									subject.cycleLastWallTouched();
+								}
+								break;
+							case RIGHT:
+								if(getRightEntity(y, x) instanceof Air)
+								{
+									moveRight(y, x);
+//									subject.cycleReverseLastWallTouched();
+								}
+								else if(getTopEntity(y, x) instanceof Air)
+								{
+									moveTop(y, x);
+								}
+								else if(getTopEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								else
+								{
+									subject.cycleLastWallTouched();
+								}
+								break;
+
+							default:
 								break;
 							}
 							
