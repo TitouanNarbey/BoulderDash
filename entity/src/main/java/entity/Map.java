@@ -436,9 +436,6 @@ public class Map extends Observable {
 						else if( (getBotEntity(y, x).getClass() == SpawnPoint.class) && (subject.isFalling()) )
 						{
 							System.out.println("Kill the Player !");
-							System.out.println("|||||||||||||||||||||||||||");
-							System.out.println("|||||||||||||||||||||||||||");
-							System.out.println("|||||||||||||||||||||||||||");
 							killPlayer();
 							subject.setFalling(true);
 							getEntity(y, x).setHasDoAction(true);
@@ -449,9 +446,6 @@ public class Map extends Observable {
 							subject.setFalling(true);
 							explodeDiamond(y, x+1);
 							System.out.println("Kill Monster !");
-							System.out.println("|||||||||||||||||||||||||||");
-							System.out.println("|||||||||||||||||||||||||||");
-							System.out.println("|||||||||||||||||||||||||||");
 							getEntity(y, x).setHasDoAction(true);
 							moveBot(y, x);//need to do at end
 						}
