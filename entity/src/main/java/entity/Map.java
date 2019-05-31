@@ -5,6 +5,7 @@ import java.awt.Point;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.Observable;
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +18,7 @@ public class Map extends Observable {
 	boolean open = false;
 	private Entity[][] content;// [x][y]
 	Direction nextPlayerDirection = Direction.NOTHING;
+	Random rand = new Random();
 	
 	//timer
     // creating timer task, timer
@@ -478,6 +480,7 @@ public class Map extends Observable {
 					/////   Monster   /////
 					if(getEntity(y, x) instanceof Monster && !(getEntity(y, x).getHasDoAction()) )
 					{
+						/////   Octopus   /////
 						if(getEntity(y, x) instanceof Octopus)
 						{
 							Octopus subject = (Octopus) getEntity(y, x);
@@ -516,6 +519,59 @@ public class Map extends Observable {
 							{
 								System.out.println("ERROR MOUVEMENT OCTOPUS");
 							}
+						}
+						else if(getEntity(y, x) instanceof Bat)
+						{
+							getEntity(y, x).setHasDoAction(true);
+							int n = rand.nextInt(4); //[0-3]
+							switch (n) 
+							{
+							case 0://TOP
+								if(getTopEntity(y, x) instanceof Air)
+								{
+									moveTop(y, x);
+								}
+								else if(getTopEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								break;
+							case 1://BOT
+								if(getBotEntity(y, x) instanceof Air)
+								{
+									moveBot(y, x);
+								}
+								else if(getBotEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								break;
+							case 2://RIGHT
+								if(getRightEntity(y, x) instanceof Air)
+								{
+									moveRight(y, x);
+								}
+								else if(getRightEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								break;
+							case 3://LEFT
+								if(getLeftEntity(y, x) instanceof Air)
+								{
+									moveLeft(y, x);
+								}
+								else if(getLeftEntity(y, x) instanceof SpawnPoint)
+								{
+									killPlayer();
+								}
+								break;
+
+							default:
+								System.out.println("ERROR on random number for bat in map");
+								break;
+							}
+							
 						}
 					}
 					/////////////////////////
