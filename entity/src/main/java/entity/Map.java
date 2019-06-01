@@ -459,6 +459,16 @@ public class Map extends Observable {
 								System.out.println("Slide");
 								getEntity(y, x).setHasDoAction(true);
 								moveRight(y, x);
+								
+								//death verification
+								if((getRightBotEntity(y, x).getClass() == SpawnPoint.class))
+								{
+									killPlayer();
+								}
+								else if((getRightBotEntity(y, x) instanceof Monster))
+								{
+									explodeDiamond(y+1,x+1);
+								}
 							}
 							else if( (getLeftEntity(y, x) instanceof Air) && (getLeftBotEntity(y, x) instanceof Air || getLeftBotEntity(y, x) instanceof Monster || getLeftBotEntity(y, x) instanceof SpawnPoint))
 							{
@@ -466,6 +476,16 @@ public class Map extends Observable {
 								System.out.println("Slide");
 								getEntity(y, x).setHasDoAction(true);
 								moveLeft(y, x);
+								
+								//death verification
+								if((getLeftBotEntity(y, x).getClass() == SpawnPoint.class))
+								{
+									killPlayer();
+								}
+								else if((getLeftBotEntity(y, x) instanceof Monster))
+								{
+									explodeDiamond(y-1,x+1);
+								}
 							}
 						}
 						else
