@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -83,6 +85,14 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+//		Graphics2D grph = (Graphics2D) graphics;
+		if(this.getViewFrame().getModel().getMap().getPlayerLocation() != null)
+		{
+			Point pnt = this.getViewFrame().getModel().getMap().getPlayerLocation();
+			graphics.translate(-pnt.x*32 + 32*16/2 - 32, -pnt.y*32 + 32*16/2 - 32);
+//			grph.scale(0.8, 0.8);
+		}
+		
 
 		//		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
 		//		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 25, 40);
