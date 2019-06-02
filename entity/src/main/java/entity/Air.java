@@ -8,10 +8,5 @@ public class Air extends Block implements IDestroyable{
 	public Air() {
 		super(SPRITE);
 	}
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

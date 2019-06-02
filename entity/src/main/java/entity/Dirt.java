@@ -7,11 +7,5 @@ public class Dirt extends Block implements IDestroyable{
 	public Dirt() {
 		super(SPRITE);
 	}
-	
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

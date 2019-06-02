@@ -67,7 +67,7 @@ public class DAOMap {
 	 */
 	public Map find(int id)
 	{
-		/////   access base de donnee   /////
+		/////   access database   /////
 		String urlString = "jdbc:mysql://127.0.0.1/jpublankproject?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 		String loginString = "root";
 		String passwdString = "";
@@ -81,18 +81,16 @@ public class DAOMap {
 		Map TEMP_map = new Map();
 
 		try {
-			// 1): Chargement du driver // sur la vm ?
-			//Class.forName(connectorString);//plus necessaire apparament (d'apres le message d'erreur)
 			// 2): Connexion
 			cnConnection = DriverManager.getConnection(urlString, loginString, passwdString);
-			// 3): creation du statement (jsp ce que c'est)
+			// 3): create  statement
 			stStatement = (CallableStatement) cnConnection.prepareCall(sqlRequestString);
 			stStatement.setInt(1, id);
 			stStatement.execute();
-			// 4): execute requete
+			// 4): execute query
 			rsResultset = stStatement.getResultSet();
 			// 5):
-			if (rsResultset.first()) {//on fait vraiment un while là, on est sencé avoir une seul route
+			if (rsResultset.first()) {
 				int width = rsResultset.getInt("width");//y
 				System.out.println(width);
 				int height = rsResultset.getInt("height");//x
@@ -123,17 +121,19 @@ public class DAOMap {
 			e.printStackTrace();
 		} finally {
 			try {
-				// 6): on vide la mémoire
+				// 6): clear memory
 				cnConnection.close();
 				stStatement.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Diamond to Win : " + TEMP_map.getDiamondToWin());
-		System.out.println(TEMP_map.getEntity(0, 0).toString());
-		System.out.println(TEMP_map.getEntity(1, 1).toString());
-		System.out.println(TEMP_map.getEntity(3, 2).toString());
+		
+		//debug
+//		System.out.println("Diamond to Win : " + TEMP_map.getDiamondToWin());
+//		System.out.println(TEMP_map.getEntity(0, 0).toString());
+//		System.out.println(TEMP_map.getEntity(1, 1).toString());
+//		System.out.println(TEMP_map.getEntity(3, 2).toString());
 		return TEMP_map;
 	}
 

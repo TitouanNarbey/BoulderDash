@@ -9,12 +9,6 @@ public class Rock extends Block implements IGravity, ISliding, IMovable{
 	public Rock() {
 		super(SPRITE);
 	}
-	
-	@Override
-	public void move() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void fall() {

@@ -39,7 +39,7 @@ public final class Controller implements IController{
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("BoulderDash, presse START to PLAY !");
+		this.view.printMessage("BoulderDash | presse START to PLAY !");
 	}
 
 	/**
@@ -103,19 +103,19 @@ public final class Controller implements IController{
 //				System.out.println("D");
 				this.model.getMap().setNextPlayerDirection(Direction.RIGHT);
 				break;
-			case mapUN:
+			case mapONE:
 				this.model.loadMap(1);
 				break;
-			case mapDEUX:
+			case mapTWO:
 				this.model.loadMap(2);
 				break;
-			case mapTROIS:
+			case mapTHREE:
 				this.model.loadMap(3);
 				break;
-			case mapQUATRE:
+			case mapFOUR:
 				this.model.loadMap(4);
 				break;
-			case mapCINQ:
+			case mapFIVE:
 				this.model.loadMap(5);
 				break;
 				

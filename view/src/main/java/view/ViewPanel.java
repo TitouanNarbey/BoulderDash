@@ -36,6 +36,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
+	// custom font for text
 	Font myFont = new Font("fontFamily", Font.PLAIN, 35);
 	int fontChangeColor = 4;
 	
@@ -89,17 +90,15 @@ class ViewPanel extends JPanel implements Observer {
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-//		Graphics2D grph = (Graphics2D) graphics;
+//		Graphics2D grph = (Graphics2D) graphics; //cast to use some function, don't need now
+		
+		//move the render view position depending of player position
 		if(this.getViewFrame().getModel().getMap().getPlayerLocation() != null)
 		{
 			Point pnt = this.getViewFrame().getModel().getMap().getPlayerLocation();
 			graphics.translate(-pnt.x*32 + 32*16/2 - 32, -pnt.y*32 + 32*16/2 - 32);
 //			grph.scale(0.8, 0.8);
 		}
-		
-
-		//		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
-		//		graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 25, 40);
 
 		if(this.getViewFrame().getModel().getMap().getHeight() > 1 && this.getViewFrame().getModel().getMap().getWidth() > 1)
 		{
@@ -111,11 +110,7 @@ class ViewPanel extends JPanel implements Observer {
 				}
 			}
 
-//			graphics.drawString("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), 1600, 650);
-//			graphics.drawString("Door : " + this.getViewFrame().getModel().getMap().isOpen(), 100, 100);
-//			System.out.println("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin());
-//			System.out.println("Door : " + this.getViewFrame().getModel().getMap().isOpen());
-			
+			// display time remaining and diamond left ( with a black and white switcher)
 			if(this.getViewFrame().getModel().getMap().getPlayerLocation() != null)
 			{
 				Point pnt = this.getViewFrame().getModel().getMap().getPlayerLocation();
@@ -134,8 +129,6 @@ class ViewPanel extends JPanel implements Observer {
 				{
 					fontChangeColor = -8;
 				}
-					
-				
 				graphics.drawString("" + this.getViewFrame().getModel().getMap().getTime(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 65);
 				graphics.drawString(this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 100);
 				
@@ -157,11 +150,15 @@ class ViewPanel extends JPanel implements Observer {
 			}
 
 			
+			// re-add the observer, may be only use the first time to set the observer on the good map (thanks to hello world)
 			viewFrame.getModel().getMap().addObserver(this);
 		}
 
 	}
 	
+	/**
+	 * To load images in memory
+	 */
 	private void loadAllImages() {
 		Entity temp_entity;
 		

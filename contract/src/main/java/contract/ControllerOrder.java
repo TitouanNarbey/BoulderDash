@@ -20,10 +20,10 @@ public enum ControllerOrder {
 	Q,
 	S,
 	D,
-	mapUN,
-	mapDEUX,
-	mapTROIS,
-	mapQUATRE,
-	mapCINQ
+	mapONE,
+	mapTWO,
+	mapTHREE,
+	mapFOUR,
+	mapFIVE
 	
 }

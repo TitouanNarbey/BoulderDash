@@ -9,12 +9,6 @@ public class Diamond extends Block implements IGravity, ISliding, IDestroyable{
 	public Diamond() {
 		super(SPRITE);
 	}
-	
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void fall() {

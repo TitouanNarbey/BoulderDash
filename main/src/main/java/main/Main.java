@@ -11,6 +11,7 @@ import view.View;
 
 /**
  * The Class Main.
+ * As exemple
  *
  * @author Jean-Aymeric Diet
  */
@@ -29,6 +30,6 @@ public abstract class Main {
         view.setController(controller);
 
         controller.control();
-        controller.orderPerform(ControllerOrder.mapTROIS);
+        controller.orderPerform(ControllerOrder.mapONE);
     }
 }

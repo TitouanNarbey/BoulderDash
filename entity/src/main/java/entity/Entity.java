@@ -1,14 +1,24 @@
 package entity;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Entity.
  *
  * @author Jean-Aymeric Diet
  */
 public abstract class Entity {
+	
+	/** The sprite. */
 	private Sprite sprite;
+	
+	/** The has do action. */
 	boolean hasDoAction;
 	
+    /**
+     * Instantiates a new entity.
+     *
+     * @param sprite_ the sprite
+     */
     public Entity(final Sprite sprite_) {
         this.setSprite(sprite_);
         hasDoAction = false;
@@ -33,10 +43,21 @@ public abstract class Entity {
         this.sprite = sprite;
     }
     
+    /**
+     * Sets the checks for do action.
+     *
+     * @param act_ the new checks for do action
+     */
     public void setHasDoAction(boolean act_) {
     	hasDoAction = act_;
 //		System.out.println("action set to :" + hasDoAction);
     }
+    
+    /**
+     * Gets the checks for do action.
+     *
+     * @return the checks for do action
+     */
     public boolean getHasDoAction() {
 //		System.out.println("return hasDoAction : " + hasDoAction);
     	return hasDoAction;
@@ -46,21 +67,20 @@ public abstract class Entity {
 
 /*
 
-Roch = R
-Air = espace
+Rock = R
+Air = space
 Diamond = D
 Border = B
 Exit = E
 Dirt = P
-Player = P
+Player = P //finally, we decided to move the spawnpoint
 Monster = M
 SpawnPoint = _
 */
 
 /*
-Pour la MAP:
-On aura 20 lignes en verticale et 20 en horizontale 
-Voici un exemple de la MAP sans avoir inseré les objets dedans.
+For the MAP:
+MAP exemple :
 BBBBBBBBBBBBBBBBBBBB
 BPPPPPPPPPP RD R PPB
 BPP_PPPPPPP  RR  PPB
@@ -82,8 +102,9 @@ B        RR      E B
 B        D         B
 BBBBBBBBBBBBBBBBBBBB
 :20x20
-:11 D
-Il faudra donc inserer tout les objets ainsi que le joueur et les monstres. 
+:11 DiamondToWin
+
+\r\n need at the end of each line
 
 
 */

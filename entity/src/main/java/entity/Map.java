@@ -34,10 +34,9 @@ public class Map extends Observable {
     
     public Map()
     {
+    	// setup a default map to counter outOfBoundException
     	timer = new Timer();
     	// scheduling the task at interval
-
-
 		width = 1;
 		height = 1;
 		content = new Entity[width][height];
@@ -187,6 +186,7 @@ public class Map extends Observable {
 			return false;
 		}
 	}
+
 	public boolean moveBotPlayer(int x, int y) {
 		Entity enti = this.getBotEntity(x, y);
 		if(enti instanceof IDestroyable)
@@ -344,21 +344,7 @@ public class Map extends Observable {
 	public void setEntityOnTheMap(int x_, int y_, Entity entity_) {
 		content[x_][y_] = entity_;
 	}
-	
-//	//temp Titouan le 26.05.2019 15:58
-//	public void printMapConsol() {
-//		System.out.println();
-//		for(int y=0; y < height; y++)
-//		{
-//			for(int x=0; x < width; x++)
-//			{
-//				System.out.print(content[x][y].getSprite().getConsoleImage());
-//			}
-//			System.out.println();
-//		}
-//		System.out.println("Nb diamond : " + diamondNow + "/" + diamondToWin);
-//		System.out.println("Door : " + isOpen());
-//	}
+
 
 	public void updateMap() {
 		/////   Player   /////
@@ -393,14 +379,9 @@ public class Map extends Observable {
 			break;
 		}
 		//////////////////////
-//		try {
-//			TimeUnit.MILLISECONDS.sleep(500);
-//		} catch (InterruptedException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
+
 		
-		//reset des hasDoAction
+		//reset hasDoAction
 		for(int y=height-1; y >= 0; y--)
 		{
 			for(int x=width-1; x >= 0; x--)
@@ -427,8 +408,6 @@ public class Map extends Observable {
 						{
 							System.out.println("Air");
 							subject.setFalling(true);
-							//						IGravity diam = (IGravity) content[y][x];//debug
-							//						System.out.println("isFalling ? : " + diam.isFalling());//debug
 							getEntity(y, x).setHasDoAction(true);
 							moveBot(y, x);//need to do at end
 							
