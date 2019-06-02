@@ -37,6 +37,7 @@ class ViewPanel extends JPanel implements Observer {
 	private static final long	serialVersionUID	= -998294702363713521L;
 
 	Font myFont = new Font("fontFamily", Font.PLAIN, 35);
+	int fontChangeColor = 4;
 	
 	/**
 	 * Instantiates a new view panel.
@@ -119,7 +120,22 @@ class ViewPanel extends JPanel implements Observer {
 			{
 				Point pnt = this.getViewFrame().getModel().getMap().getPlayerLocation();
 				graphics.setFont(myFont);
-				graphics.setColor(Color.BLACK);
+				if(fontChangeColor < 0)
+				{
+					graphics.setColor(Color.WHITE);
+					fontChangeColor++;
+				}
+				else if(fontChangeColor >= 0)
+				{
+					graphics.setColor(Color.BLACK);
+					fontChangeColor++;
+				}
+				if(fontChangeColor > 4)
+				{
+					fontChangeColor = -4;
+				}
+					
+				
 				graphics.drawString("" + this.getViewFrame().getModel().getMap().getTime(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 65);
 				graphics.drawString(this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 100);
 				
