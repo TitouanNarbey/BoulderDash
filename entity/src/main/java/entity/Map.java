@@ -19,11 +19,13 @@ public class Map extends Observable {
 	private Entity[][] content;// [x][y]
 	Direction nextPlayerDirection = Direction.NOTHING;
 	Random rand = new Random();
+	int time = 150 *5;// second / 5
 	
 	//timer
     // creating timer task, timer
 	TimerTask task = new TimerTask() {
         public void run() {
+        	time--;
             updateMap();
         }
     };
@@ -692,7 +694,10 @@ public class Map extends Observable {
 			}
 		}
 
-
+		if(time <= 0)
+		{
+			System.out.println("Time out !");
+		}
  
 		setChanged();
 		notifyObservers();
@@ -788,5 +793,9 @@ public class Map extends Observable {
 
 	public void setNextPlayerDirection(Direction dir_) {
 		nextPlayerDirection = dir_;
+	}
+	
+	public int getTime() {
+		return time/5;
 	}
 }

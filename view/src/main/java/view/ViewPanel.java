@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -34,7 +36,8 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
-
+	Font myFont = new Font("fontFamily", Font.PLAIN, 35);
+	
 	/**
 	 * Instantiates a new view panel.
 	 *
@@ -111,6 +114,17 @@ class ViewPanel extends JPanel implements Observer {
 //			graphics.drawString("Door : " + this.getViewFrame().getModel().getMap().isOpen(), 100, 100);
 //			System.out.println("Nb diamond : " + this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin());
 //			System.out.println("Door : " + this.getViewFrame().getModel().getMap().isOpen());
+			
+			if(this.getViewFrame().getModel().getMap().getPlayerLocation() != null)
+			{
+				Point pnt = this.getViewFrame().getModel().getMap().getPlayerLocation();
+				graphics.setFont(myFont);
+				graphics.setColor(Color.BLACK);
+				graphics.drawString("" + this.getViewFrame().getModel().getMap().getTime(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 65);
+				graphics.drawString(this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 100);
+				
+			}
+			
 			viewFrame.getModel().getMap().addObserver(this);
 		}
 
