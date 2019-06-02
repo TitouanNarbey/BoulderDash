@@ -20,12 +20,13 @@ public class Map extends Observable {
 	Direction nextPlayerDirection = Direction.NOTHING;
 	Random rand = new Random();
 	int time = 150 *5;// second / 5
+	private boolean loose = false;
+	private boolean win = false;
 	
 	//timer
     // creating timer task, timer
 	TimerTask task = new TimerTask() {
         public void run() {
-        	time--;
             updateMap();
         }
     };
@@ -74,7 +75,7 @@ public class Map extends Observable {
 		}
 		else 
 		{
-			System.out.println("error:diamondToWin < 0");
+			System.out.println("error : diamondToWin < 0");
 		}
 	}
 	public void setWidth(int width){
@@ -84,7 +85,7 @@ public class Map extends Observable {
 		}
 		else 
 		{
-			System.out.println("error:width < 0");
+			System.out.println("error : width < 0");
 		}
 	}
 	public void setHeight(int height){
@@ -94,7 +95,7 @@ public class Map extends Observable {
 		}
 		else 
 		{
-			System.out.println("error:height < 0");
+			System.out.println("error : height < 0");
 		}
 	}
 	
@@ -167,6 +168,7 @@ public class Map extends Observable {
 			else if(getTopEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				win = true;
 				moveTop(x, y);
 			}
 			else if(getTopEntity(x, y) instanceof Exit && !isOpen())
@@ -197,6 +199,7 @@ public class Map extends Observable {
 			else if(getBotEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				win = true;
 				moveBot(x, y);
 			}
 			else if(getBotEntity(x, y) instanceof Exit && !isOpen())
@@ -227,6 +230,7 @@ public class Map extends Observable {
 			else if(getLeftEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				win = true;
 				moveLeft(x, y);
 			}
 			else if(getLeftEntity(x, y) instanceof Exit && !isOpen())
@@ -264,6 +268,7 @@ public class Map extends Observable {
 			else if(getRightEntity(x, y) instanceof Exit && isOpen())
 			{
 				System.out.println("Win !");
+				win = true;
 				moveRight(x, y);
 			}
 			else if(getRightEntity(x, y) instanceof Exit && !isOpen())
@@ -694,9 +699,13 @@ public class Map extends Observable {
 			}
 		}
 
-		if(time <= 0)
+		if(time < 0)
 		{
 			System.out.println("Time out !");
+		}
+		else
+		{
+        	time--;
 		}
  
 		setChanged();
@@ -741,6 +750,7 @@ public class Map extends Observable {
 	
 	public void killPlayer() {
 		System.out.println("Player is dead !");
+		loose = true;
 		explode(getPlayerLocation());
 		setChanged();
 		notifyObservers();
@@ -797,5 +807,12 @@ public class Map extends Observable {
 	
 	public int getTime() {
 		return time/5;
+	}
+	
+	public boolean isLoose() {
+		return loose;
+	}
+	public boolean isWin() {
+		return win;
 	}
 }

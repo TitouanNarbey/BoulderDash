@@ -139,7 +139,23 @@ class ViewPanel extends JPanel implements Observer {
 				graphics.drawString("" + this.getViewFrame().getModel().getMap().getTime(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 65);
 				graphics.drawString(this.getViewFrame().getModel().getMap().getDiamondNow() + "/" + this.getViewFrame().getModel().getMap().getDiamondToWin(), pnt.x*32 - 32*16/2 + 50 , pnt.y*32 - 32*16/2 + 100);
 				
+				
+				if(this.getViewFrame().getModel().getMap().isWin())
+				{
+					graphics.setFont(myFont);
+					graphics.setColor(Color.WHITE);
+					graphics.drawString("WIN !", pnt.x*32 -32/2 , pnt.y*32 );
+				}
+				
 			}
+			
+			if(this.getViewFrame().getModel().getMap().isLoose())
+			{
+				graphics.setFont(myFont);
+				graphics.setColor(Color.WHITE);
+				graphics.drawString("LOOSE", 32*16/2 -32*2/2 , 32*16/2);
+			}
+
 			
 			viewFrame.getModel().getMap().addObserver(this);
 		}
