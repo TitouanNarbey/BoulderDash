@@ -130,9 +130,9 @@ class ViewPanel extends JPanel implements Observer {
 					graphics.setColor(Color.BLACK);
 					fontChangeColor++;
 				}
-				if(fontChangeColor > 4)
+				if(fontChangeColor > 8)
 				{
-					fontChangeColor = -4;
+					fontChangeColor = -8;
 				}
 					
 				
