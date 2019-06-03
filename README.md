@@ -19,7 +19,9 @@ D for Right player<br><br>
 
 Made with love in a record time by :<br><br>
 
-Titou <br>
+Titouan <br>
 Olivia  <br>
 Gledis <br>
 Alexandre <br>
+
+Git log is in /
