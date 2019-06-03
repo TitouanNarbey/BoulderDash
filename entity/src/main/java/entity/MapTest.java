@@ -58,8 +58,6 @@ public class MapTest {
 		 }
 		
 		
-		
-		
 //        int width = 56;
 //        int high = 40;
 //     
