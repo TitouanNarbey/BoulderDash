@@ -49,7 +49,9 @@ public class Map extends Observable {
      * Map constructor 
      * 
      * @param height_
+     * 		height
      * @param width_
+     * 		width
      */
 	public Map(int height_, int width_)
 	{
@@ -64,6 +66,7 @@ public class Map extends Observable {
 	 * Return the number of diamond required to open the exit.
 	 * 
 	 * @return diamondToWin
+     * 		number of diamond to win
 	 */
 	public int getDiamondToWin() {
 		return diamondToWin;
@@ -72,7 +75,9 @@ public class Map extends Observable {
 	/**
 	 * Return the number of diamond that the player have.
 	 * 
-	 * @return diamondToWin
+	 * @return diamondNow
+     * 		number of diamond that have the player now
+     * 		
 	 */
 	public int getDiamondNow() {
 		return diamondNow;
@@ -82,6 +87,7 @@ public class Map extends Observable {
 	 * Return map's width
 	 * 
 	 * @return width
+     * 		width
 	 */
 	public int getWidth() {
 		return width;
@@ -91,6 +97,7 @@ public class Map extends Observable {
 	 * Return map's height
 	 * 
 	 * @return height
+     * 		height
 	 */
 	public int getHeight() {
 		return height;
@@ -103,7 +110,7 @@ public class Map extends Observable {
 	 * Should never be use
 	 * 
 	 * @return content
-	 * 
+     * 		Entity[][]
 	 */
 	public Entity[][] getContent() {
 		return content;
@@ -113,6 +120,7 @@ public class Map extends Observable {
 	 * set the number of diamond required to win
 	 * 
 	 * @param mbdiamond
+	 * 		nb od diamond to win
 	 */
 	public void setDiamondToWin(int mbdiamond){
 		if (mbdiamond >= 0) 
@@ -129,6 +137,7 @@ public class Map extends Observable {
 	 * set map's width
 	 * 
 	 * @param width
+	 * 		future width of the map
 	 */
 	public void setWidth(int width){
 		if (width >= 0) 
@@ -145,6 +154,7 @@ public class Map extends Observable {
 	 * set map's height
 	 * 
 	 * @param height
+	 * 		future height of the map
 	 */
 	public void setHeight(int height){
 		if (height >= 0) 
@@ -162,8 +172,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getTopEntity(int x, int y) {
 		return this.getEntity(x, y-1);
@@ -172,8 +185,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getBotEntity(int x, int y) {
 		return this.getEntity(x, y+1);
@@ -182,8 +198,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getBotBotEntity(int x, int y) {
 		return this.getEntity(x, y+2);
@@ -192,8 +211,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getLeftEntity(int x, int y) {
 		return this.getEntity(x-1, y);
@@ -202,8 +224,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getLeftLeftEntity(int x, int y) {
 		return this.getEntity(x-2, y);
@@ -212,8 +237,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getRightRightEntity(int x, int y) {
 		return this.getEntity(x+2, y);
@@ -222,8 +250,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getRightEntity(int x, int y) {
 		return this.getEntity(x+1, y);
@@ -232,8 +263,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getLeftBotEntity(int x, int y) {
 		return this.getEntity(x-1, y+1);
@@ -242,8 +276,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getRightBotEntity(int x, int y) {
 		return this.getEntity(x+1, y+1);
@@ -252,8 +289,11 @@ public class Map extends Observable {
 	 * Return the Entity on the map relative to a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * @return Entity
+     * 		Entity
 	 */
 	public Entity getEntity(int x, int y) {
 		return this.content[x][y];
@@ -264,7 +304,9 @@ public class Map extends Observable {
 	 * Move the element from a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 */
 	public void moveTop(int x, int y) {
 //		this.content[x][y-1].destroy();
@@ -277,7 +319,9 @@ public class Map extends Observable {
 	 * Move the element from a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 */
 	public void moveLeft(int x, int y) {
 		this.content[x-1][y] = this.content[x][y];
@@ -288,7 +332,9 @@ public class Map extends Observable {
 	 * Move the element from a given position
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 */
 	public void moveBot(int x, int y) {
 		this.content[x][y+1] = this.content[x][y];
@@ -298,7 +344,9 @@ public class Map extends Observable {
 		 * Move the element from a given position
 		 * 
 		 * @param x
+	 * 		x
 		 * @param y
+	 * 		y
 		 */System.out.println("Go DOWN");
 	}
 	public void moveRight(int x, int y) {
@@ -311,9 +359,14 @@ public class Map extends Observable {
 	 *  Move the player top depending of his environment
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * 
-	 * @see moveTop()
+	 * @return boolean
+	 * 		return true if the player move
+	 * 
+	 * @see entity.Map#moveTop()
 	 */
 	public boolean moveTopPlayer(int x, int y) {
 		Entity enti = this.getTopEntity(x, y);
@@ -351,9 +404,14 @@ public class Map extends Observable {
 	 *  Move the player bot depending of his environment
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * 
-	 * @see moveBot()
+	 * @return boolean
+	 * 		return true if the player move
+	 * 
+	 * @see entity.Map#moveBot()
 	 */
 	public boolean moveBotPlayer(int x, int y) {
 		Entity enti = this.getBotEntity(x, y);
@@ -391,9 +449,14 @@ public class Map extends Observable {
 	 *  Move the player left depending of his environment
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * 
-	 * @see moveLeft()
+	 * @return boolean
+	 * 		return true if the player move
+	 * 
+	 * @see entity.Map#moveLeft()
 	 */
 	public boolean moveLeftPlayer(int x, int y) {
 		Entity enti = this.getLeftEntity(x, y);
@@ -438,9 +501,14 @@ public class Map extends Observable {
 	 *  Move the player right depending of his environment
 	 * 
 	 * @param x
+	 * 		x
 	 * @param y
+	 * 		y
 	 * 
-	 * @see moveRight()
+	 * @return boolean
+	 * 		return true if the player move
+	 * 
+	 * @see entity.Map#moveRight()
 	 */
 	public boolean moveRightPlayer(int x, int y) {
 		Entity enti = this.getRightEntity(x, y);
@@ -487,8 +555,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveTop with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveTop()
+	 * @see entity.Map#moveTop()
 	 */
 	public void moveTop(Point pnt) {
 		moveTop(pnt.x,pnt.y);
@@ -498,8 +567,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveLeft with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveLeft()
+	 * @see entity.Map#moveLeft()
 	 */
 	public void moveLeft(Point pnt) {
 		moveLeft(pnt.x,pnt.y);
@@ -509,8 +579,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveBot with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveBot()
+	 * @see entity.Map#moveBot()
 	 */
 	public void moveBot(Point pnt) {
 		moveBot(pnt.x,pnt.y);
@@ -520,8 +591,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveRight with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveRight()
+	 * @see entity.Map#moveRight()
 	 */
 	public void moveRight(Point pnt) {
 		moveRight(pnt.x,pnt.y);
@@ -531,8 +603,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveTopPlayer with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveTopPlayer()
+	 * @see entity.Map#moveTopPlayer()
 	 */
 	public void moveTopPlayer(Point pnt) {
 		moveTopPlayer(pnt.x,pnt.y);
@@ -542,8 +615,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveLeftPlayer with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveLeftPlayer()
+	 * @see entity.Map#moveLeftPlayer()
 	 */
 	public void moveLeftPlayer(Point pnt) {
 		moveLeftPlayer(pnt.x,pnt.y);
@@ -553,8 +627,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveBotPlayer with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveBotPlayer()
+	 * @see entity.Map#moveBotPlayer()
 	 */
 	public void moveBotPlayer(Point pnt) {
 		moveBotPlayer(pnt.x,pnt.y);
@@ -564,8 +639,9 @@ public class Map extends Observable {
 	 * Give him a Point, and he will call moveRightPlayer with x,y
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see moveRightPlayer()
+	 * @see entity.Map#moveRightPlayer()
 	 */
 	public void moveRightPlayer(Point pnt) {
 		moveRightPlayer(pnt.x,pnt.y);
@@ -576,6 +652,7 @@ public class Map extends Observable {
 	 * Retrun the player location (only on player on the map pls)
 	 * 
 	 * @return Point
+	 * 		Point(x,y)
 	 */
 	public Point getPlayerLocation() {
 		Point pnt = null;
@@ -597,7 +674,9 @@ public class Map extends Observable {
 	 * Set an entity on the map at a specific location
 	 * 
 	 * @param x_
+	 * 		x
 	 * @param y_
+	 * 		y
 	 * @param entity_
 	 */
 	public void setEntityOnTheMap(int x_, int y_, Entity entity_) {
@@ -607,7 +686,7 @@ public class Map extends Observable {
 	/**
 	 * Update the map (called avery 200 mill by task)
 	 * 
-	 * @see task
+	 * @see entity.Map#task
 	 * @author 1850743 Titouan Narbey
 	 */
 	public void updateMap() {
@@ -961,7 +1040,7 @@ public class Map extends Observable {
 	 * + 
 	 * update the exit state by calling updateExit()
 	 * 
-	 * @see updateExit()
+	 * @see entity.Map#updateExit()
 	 */
 	private void addDiamondNow(){
 		diamondNow++;
@@ -972,7 +1051,7 @@ public class Map extends Observable {
 	/**
 	 * update the exit status depending of player's diamond and diamondToWin
 	 * 
-	 * @see diamodToWin
+	 * @see entity.Map#diamodToWin
 	 */
 	private void updateExit(){
 		if(diamondNow == diamondToWin)
@@ -994,7 +1073,7 @@ public class Map extends Observable {
 	/**
 	 * Set the door open
 	 * 
-	 * @see updateExit()
+	 * @see entity.Map#updateExit()
 	 */
 	public void setOpen() {
 		open = true;
@@ -1003,7 +1082,7 @@ public class Map extends Observable {
 	/**
 	 * Set the door close
 	 * 
-	 * @see updateExit()
+	 * @see entity.Map#updateExit()
 	 */
 	public void setClose() {
 		open = false;
@@ -1013,8 +1092,9 @@ public class Map extends Observable {
 	 * Return true if the door is open
 	 * 
 	 * @return open
+	 * 		return true if the door is open
 	 * 
-	 * @see updateExit()
+	 * @see entity.Map#updateExit()
 	 */
 	public boolean isOpen() {
 		return open;
@@ -1051,7 +1131,9 @@ public class Map extends Observable {
 	 * Make an explosion at a specific location
 	 * 
 	 * @param y_
+	 * 		x
 	 * @param x_
+	 * 		y
 	 */
 	public void explode(int y_, int x_) {
 		content[y_][x_] = new Air();
@@ -1069,18 +1151,21 @@ public class Map extends Observable {
 	 * Call explode(int y_, int x_) but with Point
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see explode()
+	 * @see entity.Map#explode()
 	 */
 	public void explode(Point pnt) {
 		explode(pnt.x,pnt.y);
 	}
 	
 	/**
-	 * Make an explosion of diamond at a specific location
-	 * 
-	 * @param y_
+	 * Make an explosion of diamond at a specific location.
+	 *
 	 * @param x_
+	 * 		x
+	 * @param y_
+	 * 		y
 	 */
 	public void explodeDiamond(int x_, int y_) {
 		content[x_][y_] = new Diamond();
@@ -1098,8 +1183,9 @@ public class Map extends Observable {
 	 * Call explodeDiamond(int y_, int x_) but with Point
 	 * 
 	 * @param pnt
+	 * 		Point(x,y)
 	 * 
-	 * @see explodeDiamond()
+	 * @see entity.Map#explodeDiamond()
 	 */
 	public void explodeDiamond(Point pnt) {
 		explodeDiamond(pnt.x,pnt.y);
@@ -1109,8 +1195,9 @@ public class Map extends Observable {
 	 * Used to specify the location where player will move in updateMap()
 	 * 
 	 * @param dir_
+	 * 		Direction.
 	 * 
-	 * @see updateMap()
+	 * @see entity.Map#updateMap()
 	 * 
 	 */
 	public void setNextPlayerDirection(Direction dir_) {
@@ -1120,9 +1207,10 @@ public class Map extends Observable {
 	/**
 	 * Get remaining time in second
 	 * 
-	 * @return time in second
+	 * @return time
+	 * 		time in second
 	 * 
-	 * @see task
+	 * @see entity.Map#task
 	 */
 	public int getTime() {
 		return time/5;
@@ -1132,6 +1220,7 @@ public class Map extends Observable {
 	 * Return true if the game is loose
 	 * 
 	 * @return loose
+	 * 		return true if game is loose
 	 */
 	public boolean isLoose() {
 		return loose;
@@ -1141,6 +1230,7 @@ public class Map extends Observable {
 	 * Return true if the game is win
 	 * 
 	 * @return win
+	 * 		return true if game is win
 	 */
 	public boolean isWin() {
 		return win;

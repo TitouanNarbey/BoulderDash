@@ -39,7 +39,7 @@ public final class Controller implements IController{
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("BoulderDash | presse START to PLAY !");
+		this.view.printMessage("BoulderDash | press START to PLAY !");
 	}
 
 	/**
