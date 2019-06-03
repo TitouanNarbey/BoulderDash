@@ -1,5 +1,8 @@
 package entity;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 import java.util.Random;
 
 import org.junit.After;
@@ -10,6 +13,10 @@ import org.junit.Test;
 
 public class MapTest {
 
+	int id = 1;
+	boolean isFalling;
+	MapTest Rock;
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -20,6 +27,8 @@ public class MapTest {
 
 	@Before
 	public void setUp() throws Exception {
+		
+		Rock = new MapTest();
 	}
 
 	@After
@@ -31,7 +40,7 @@ public class MapTest {
 	
 	}
 	
-//From Github
+
 	@Test
 	public void testGetWidth() {
 		 try {
@@ -57,4 +66,31 @@ public class MapTest {
 		assert t.getHeight()>=1;
 		assert t.getWidth()>=1;
 	}
+	
+	@Test
+	public void testMoveRight() {
+		Map mymap = new Map(2,2);
+		mymap.setEntityOnTheMap(0, 0,new Rock());
+		mymap.setEntityOnTheMap(1, 0,new Dirt());
+		mymap.setEntityOnTheMap(0, 1,new SpawnPoint());
+		mymap.setEntityOnTheMap(1, 1,new Air());
+		
+		//simulate key 
+		mymap.moveRightPlayer(mymap.getPlayerLocation());
+		
+		int expected = id;
+		assertEquals(expected, Rock.id);
+		System.out.println("Rock Exist");
+		
+	}
+	
+	@Test
+	public void testIsFalling() {
+		
+		Rock = new MapTest();
+		assertFalse(Rock.isFalling);
+		System.out.println("The Rock is falling, so the player has move.");
+		
+	}
+	
 }
