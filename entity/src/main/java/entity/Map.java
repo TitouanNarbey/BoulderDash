@@ -66,7 +66,7 @@ public class Map extends Observable {
     	timer.schedule(task,200, 200);
 		width = width_;
 		height = height_;
-		time = 20 *5;
+		time = 150 *5;
 		content = new Entity[height][width];
 	}
 	
