@@ -10,6 +10,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The Map
+ * 
+ * @author 1850743 Titouan Narbey
+ *
+ */
 public class Map extends Observable {
 	private int width;
 	private int height;
@@ -296,7 +302,14 @@ public class Map extends Observable {
      * 		Entity
 	 */
 	public Entity getEntity(int x, int y) {
-		return this.content[x][y];
+		if( (x <= height) && (y <= width) )
+		{
+			return this.content[x][y];
+		}
+		else 
+		{
+			return null;
+		}
 	}
 	
 	
@@ -366,7 +379,6 @@ public class Map extends Observable {
 	 * @return boolean
 	 * 		return true if the player move
 	 * 
-	 * @see entity.Map#moveTop()
 	 */
 	public boolean moveTopPlayer(int x, int y) {
 		Entity enti = this.getTopEntity(x, y);
@@ -411,7 +423,6 @@ public class Map extends Observable {
 	 * @return boolean
 	 * 		return true if the player move
 	 * 
-	 * @see entity.Map#moveBot()
 	 */
 	public boolean moveBotPlayer(int x, int y) {
 		Entity enti = this.getBotEntity(x, y);
@@ -456,7 +467,6 @@ public class Map extends Observable {
 	 * @return boolean
 	 * 		return true if the player move
 	 * 
-	 * @see entity.Map#moveLeft()
 	 */
 	public boolean moveLeftPlayer(int x, int y) {
 		Entity enti = this.getLeftEntity(x, y);
@@ -508,7 +518,6 @@ public class Map extends Observable {
 	 * @return boolean
 	 * 		return true if the player move
 	 * 
-	 * @see entity.Map#moveRight()
 	 */
 	public boolean moveRightPlayer(int x, int y) {
 		Entity enti = this.getRightEntity(x, y);
@@ -557,7 +566,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveTop()
 	 */
 	public void moveTop(Point pnt) {
 		moveTop(pnt.x,pnt.y);
@@ -569,7 +577,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveLeft()
 	 */
 	public void moveLeft(Point pnt) {
 		moveLeft(pnt.x,pnt.y);
@@ -581,7 +588,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveBot()
 	 */
 	public void moveBot(Point pnt) {
 		moveBot(pnt.x,pnt.y);
@@ -593,7 +599,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveRight()
 	 */
 	public void moveRight(Point pnt) {
 		moveRight(pnt.x,pnt.y);
@@ -605,7 +610,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveTopPlayer()
 	 */
 	public void moveTopPlayer(Point pnt) {
 		moveTopPlayer(pnt.x,pnt.y);
@@ -617,7 +621,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveLeftPlayer()
 	 */
 	public void moveLeftPlayer(Point pnt) {
 		moveLeftPlayer(pnt.x,pnt.y);
@@ -629,7 +632,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveBotPlayer()
 	 */
 	public void moveBotPlayer(Point pnt) {
 		moveBotPlayer(pnt.x,pnt.y);
@@ -641,7 +643,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#moveRightPlayer()
 	 */
 	public void moveRightPlayer(Point pnt) {
 		moveRightPlayer(pnt.x,pnt.y);
@@ -678,15 +679,15 @@ public class Map extends Observable {
 	 * @param y_
 	 * 		y
 	 * @param entity_
+	 * 		Entity
 	 */
 	public void setEntityOnTheMap(int x_, int y_, Entity entity_) {
 		content[x_][y_] = entity_;
 	}
 
 	/**
-	 * Update the map (called avery 200 mill by task)
+	 * Update the map (called every 200 mill by task)
 	 * 
-	 * @see entity.Map#task
 	 * @author 1850743 Titouan Narbey
 	 */
 	public void updateMap() {
@@ -1040,7 +1041,6 @@ public class Map extends Observable {
 	 * + 
 	 * update the exit state by calling updateExit()
 	 * 
-	 * @see entity.Map#updateExit()
 	 */
 	private void addDiamondNow(){
 		diamondNow++;
@@ -1051,7 +1051,6 @@ public class Map extends Observable {
 	/**
 	 * update the exit status depending of player's diamond and diamondToWin
 	 * 
-	 * @see entity.Map#diamodToWin
 	 */
 	private void updateExit(){
 		if(diamondNow == diamondToWin)
@@ -1073,7 +1072,6 @@ public class Map extends Observable {
 	/**
 	 * Set the door open
 	 * 
-	 * @see entity.Map#updateExit()
 	 */
 	public void setOpen() {
 		open = true;
@@ -1082,7 +1080,6 @@ public class Map extends Observable {
 	/**
 	 * Set the door close
 	 * 
-	 * @see entity.Map#updateExit()
 	 */
 	public void setClose() {
 		open = false;
@@ -1094,7 +1091,6 @@ public class Map extends Observable {
 	 * @return open
 	 * 		return true if the door is open
 	 * 
-	 * @see entity.Map#updateExit()
 	 */
 	public boolean isOpen() {
 		return open;
@@ -1153,7 +1149,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#explode()
 	 */
 	public void explode(Point pnt) {
 		explode(pnt.x,pnt.y);
@@ -1185,7 +1180,6 @@ public class Map extends Observable {
 	 * @param pnt
 	 * 		Point(x,y)
 	 * 
-	 * @see entity.Map#explodeDiamond()
 	 */
 	public void explodeDiamond(Point pnt) {
 		explodeDiamond(pnt.x,pnt.y);
@@ -1196,8 +1190,6 @@ public class Map extends Observable {
 	 * 
 	 * @param dir_
 	 * 		Direction.
-	 * 
-	 * @see entity.Map#updateMap()
 	 * 
 	 */
 	public void setNextPlayerDirection(Direction dir_) {
@@ -1210,7 +1202,6 @@ public class Map extends Observable {
 	 * @return time
 	 * 		time in second
 	 * 
-	 * @see entity.Map#task
 	 */
 	public int getTime() {
 		return time/5;

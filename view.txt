@@ -1,0 +1,143 @@
+commit 437e5f69f6a6e9f79ed2d1ab57796c8c88e06a6c
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 21:27:42 2019 +0200
+
+    prepare javadoc in map
+
+commit 25804d649f3b4cb27fc90f7f2e3afadbb7ea07f2
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 20:55:33 2019 +0200
+
+    Convert to english + now start with map nb 1
+
+commit 9d624ca24e345cd9c0520f8b2a511bc541914966
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 15:26:52 2019 +0200
+
+    Win and Loose
+
+commit 1dd2382bdb4ff23202d8a8f7462f915583379df8
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 14:42:41 2019 +0200
+
+    setResizable(false)
+
+commit 4b68993023471e29724a7eaa7781aa29ea8bf419
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 12:02:00 2019 +0200
+
+    Info on view now change color
+
+commit 832a843b91ac794d90d6ee856b8e420d7897a7d1
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 11:53:57 2019 +0200
+
+    Add du temps, et add des infos sur la view (temps restant et diamond)
+
+commit cbf1211808ee0f0e5e8317a50809a60c35c70cee
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sat Jun 1 08:45:57 2019 +0200
+
+    give window a default size, player can now watch map by 16x16
+
+commit cb762e735e82e05f9f5ddf03d9c2ffe918077f9a
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 18:13:58 2019 +0200
+
+    Fixing Warning
+
+commit 147400f69c1de98b5c4441589fc50860183a56bd
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 16:41:51 2019 +0200
+
+    Rock now works !
+
+commit 6d2fccefee9c6abaad3a92de37aac6e1e01b0a38
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Thu May 30 17:11:51 2019 +0200
+
+    new player move method (tplayer now move in updateMap()
+
+commit 5c90447b5f3294ea73dd88cf08a9724ad73d8e9f
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Thu May 30 16:01:00 2019 +0200
+
+    Change Image loading method
+
+commit 27335c616e5c8f35e1ab825d37d08548a5067c07
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 29 15:10:11 2019 +0200
+
+    no lag yet
+
+commit d27b284dbb843f3478ea6344dbe8d7175ff60ca9
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 10:47:31 2019 +0200
+
+    Resizing in sprites
+
+commit f5890cb3d1e3e01fce22c2d74acc6643d27489f0
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 08:54:59 2019 +0200
+
+    Actualization when player move
+
+commit 6f4cf6677ac3c6a376b3bf5b5f166df4181d2695
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 16:22:36 2019 +0200
+
+    add des fonctions de fall
+
+commit 22eebccb8e96ba7083cf797bb8dc38c19051ab90
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 10:33:08 2019 +0200
+
+    Mouvement OK
+
+commit 8d28a2ff6c99e91bb1d8abebab0aef93599096ac
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 10:18:55 2019 +0200
+
+    Resolution du bug de hauteur largeur, mais plus d emouvement
+
+commit ba242f5c0b0a0ac49dac84b01090c15dd1d184b4
+Author: alexa <alexa@DESKTOP-IF07L83>
+Date:   Mon May 27 17:07:31 2019 +0200
+
+    Add map change
+
+commit fb9a0306f7702317fca0c9642cfa0f95e769d4e8
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 16:02:46 2019 +0200
+
+    By Olivia, render view is implemented, but not updated
+
+commit ef9ff21d962156ef0057c789109b6efed4502bd5
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 13:31:10 2019 +0200
+
+    Gravity, diamond, exit
+
+commit d7e86f29329bd444c6de6e65b7bfa7313cf817b4
+Author: alexa <alexa@DESKTOP-IF07L83>
+Date:   Mon May 27 09:35:43 2019 +0200
+
+    add key control
+
+commit 15fb02f82ac9775613e8e4c0bcde23ab0ae4a559
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 08:29:23 2019 +0200
+
+    Remise en forme de la view, tt est normal
+
+commit ee4223dc99bce2db384269fc40e2f3ec20694784
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun May 26 16:52:28 2019 +0200
+
+    test avec les control, mais erreurs du au view, a revoir
+
+commit 8435f05c2ae4df7b4f5e383fa8f569219fa5ea5a
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 22 11:12:56 2019 +0200
+
+    Hello World !
