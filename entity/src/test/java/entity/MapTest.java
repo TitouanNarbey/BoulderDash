@@ -44,19 +44,17 @@ public class MapTest {
 		 }
 		
 	
-//	public void testGetWidth() {
-		
-//		Random r = new Random();
-//		int low = 1;
-//		int high = 199;
-//		int expected = r.nextInt(high-low) + low;
-//		
-//		Map t = new Map(200,1);
-//		Map tp = new Map(1,200);
-//		
-//		assertEquals$(expected, Map.getWidth(t));
-////		 assertFalse("La map est trop grande", Map.getWidth());
+
 		 
 		 } 
-
+	@Test
+    public void testSize() 
+	{
+         
+		Map t = new Map(40,56);
+		t.setHeight(-3);
+		
+		assert t.getHeight()>=1;
+		assert t.getWidth()>=1;
+	}
 }
