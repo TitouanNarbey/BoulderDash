@@ -1,0 +1,541 @@
+commit 8999d461f29d932fbb97be87153d35cc66c3a975
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon Jun 3 16:58:08 2019 +0200
+
+    FINAL 17:00
+
+commit e848d6a095f7578384a08bd1eaeb0844d7365cf1
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 16:45:09 2019 +0200
+
+    Controller Test
+
+commit c2e47d2043e9cc50e6a1157c0496983e346b0341
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 15:56:06 2019 +0200
+
+    Viewframe test fonctionnal 2
+
+commit 55284196dc0b56cb4b1c42e3d1aa1c18ffe39701
+Merge: c59d0c6 0f3c6c9
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 15:49:38 2019 +0200
+
+    Merge branch 'master' of https://github.com/TitouanNarbey/BoulderDash
+
+commit c59d0c69e626bede325f35d2b2a6284f0eeb2776
+Merge: db1fa87 b3d9f5a
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 15:49:28 2019 +0200
+
+    Merge branch 'master' of https://github.com/TitouanNarbey/BoulderDash
+    
+    Conflicts:
+            entity/src/test/java/entity/MapTest.java
+
+commit 0f3c6c95521670ef5ac3c171fe59464138a8fd10
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon Jun 3 15:48:45 2019 +0200
+
+    Javadoc, jxr, surefire
+
+commit db1fa87b0b8f6f529dd3b20a539a5819691b7d2d
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 15:45:00 2019 +0200
+
+    Viewframe test fonctionnal
+
+commit 9d968c3b563fa8eddfd1331f37f1cbca4c2075d8
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 15:22:18 2019 +0200
+
+    commit to pull
+
+commit b3d9f5af8f76cfa6d9041467b67b0e254a9a4d68
+Merge: 100d65d 3b24351
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon Jun 3 15:10:43 2019 +0200
+
+    Merge branch 'master' of https://github.com/TitouanNarbey/BoulderDash
+
+commit 100d65d0890361511fd32ac994f2d14672aed293
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon Jun 3 15:10:25 2019 +0200
+
+    player now die on time out
+
+commit 3b24351597f0afb69a5d1697347bce2d9b65e33d
+Author: Dexcer <44900665+Dexcer@users.noreply.github.com>
+Date:   Mon Jun 3 14:54:36 2019 +0200
+
+    Update README.md
+    
+    Add <br>
+
+commit 92c44522f9fbc41e826f21dcbcd3925f543f1c05
+Author: Dexcer <44900665+Dexcer@users.noreply.github.com>
+Date:   Mon Jun 3 14:52:56 2019 +0200
+
+    Update README.md
+    
+    fine adjustment
+
+commit ef2d3c4e4f9bf401362aeff458386ad47bd5ecaa
+Author: Dexcer <44900665+Dexcer@users.noreply.github.com>
+Date:   Mon Jun 3 14:33:51 2019 +0200
+
+    Update README.md
+
+commit 8c667418fbaa77560d80301333102686bd511018
+Author: Dexcer <44900665+Dexcer@users.noreply.github.com>
+Date:   Mon Jun 3 14:31:57 2019 +0200
+
+    Update README.md
+
+commit 918800835812054ff09281dce715e0a023e60f39
+Author: alexa <alexa@DESKTOP-IF07L83>
+Date:   Mon Jun 3 13:49:16 2019 +0200
+
+    KeyPress Test
+
+commit 841e5f6436f2702fc638dac2b0b3f0b1667acbe8
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon Jun 3 13:35:54 2019 +0200
+
+    upd
+
+commit a93faad901a010adacd9853b1b6060ffebd00165
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon Jun 3 13:34:43 2019 +0200
+
+    modify code to amtch testSize() in MapTest.java
+
+commit 1e72d0680a7f9023b0dd24ece517f1651390901c
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 12:42:31 2019 +0200
+
+    Test size getters setters
+
+commit 1f7ba28df6add29edc4d0eb36d94dcda2318285e
+Author: Gled07 <50908404+Gled07@users.noreply.github.com>
+Date:   Mon Jun 3 11:29:50 2019 +0200
+
+    Update MapTest.java
+    
+    maptest changes directly from github
+
+commit bd29a3f34986669a41935bc8ce668fd6e9d9db56
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Mon Jun 3 11:25:09 2019 +0200
+
+    Map test upd
+
+commit b02d3d4871a38ecfe4b8e83ee6ae9f1f9719af41
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Mon Jun 3 11:17:43 2019 +0200
+
+    Out of Bound test
+
+commit 5639d19f4cbb2aca1adfb222d4e4c4261109cd69
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Mon Jun 3 10:21:34 2019 +0200
+
+    diamond test
+
+commit 3bcd4e9fcc3f3a1c1cdb68f8c58f3032e78a4b03
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon Jun 3 09:39:35 2019 +0200
+
+    add element for futre javadoc
+
+commit 437e5f69f6a6e9f79ed2d1ab57796c8c88e06a6c
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 21:27:42 2019 +0200
+
+    prepare javadoc in map
+
+commit 25804d649f3b4cb27fc90f7f2e3afadbb7ea07f2
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 20:55:33 2019 +0200
+
+    Convert to english + now start with map nb 1
+
+commit 9d624ca24e345cd9c0520f8b2a511bc541914966
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 15:26:52 2019 +0200
+
+    Win and Loose
+
+commit 1dd2382bdb4ff23202d8a8f7462f915583379df8
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 14:42:41 2019 +0200
+
+    setResizable(false)
+
+commit 4b68993023471e29724a7eaa7781aa29ea8bf419
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 12:02:00 2019 +0200
+
+    Info on view now change color
+
+commit 832a843b91ac794d90d6ee856b8e420d7897a7d1
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun Jun 2 11:53:57 2019 +0200
+
+    Add du temps, et add des infos sur la view (temps restant et diamond)
+
+commit cbf1211808ee0f0e5e8317a50809a60c35c70cee
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sat Jun 1 08:45:57 2019 +0200
+
+    give window a default size, player can now watch map by 16x16
+
+commit 3b9b1f4dd01ba818aa85c58d272c5a051053770d
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sat Jun 1 08:09:44 2019 +0200
+
+    Now kill player and monster when sliding
+
+commit cb762e735e82e05f9f5ddf03d9c2ffe918077f9a
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 18:13:58 2019 +0200
+
+    Fixing Warning
+
+commit 2e24263a9078c4256b1ecfc231ba17721e60ac33
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 17:47:55 2019 +0200
+
+    Butterfly mouvement implemented
+
+commit e9deddbda3353590e78b5431a197ad8576250a1d
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 17:16:59 2019 +0200
+
+    Bat mouvement implemented
+
+commit 1fba6209129b9cd07fe9ad469dc3d13105caebbb
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 17:05:05 2019 +0200
+
+    Octopus mouvement implemented
+
+commit 5ea4eda153564c1ac151eca81a2d044fc7f798e5
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 16:42:41 2019 +0200
+
+    upd
+
+commit 147400f69c1de98b5c4441589fc50860183a56bd
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 31 16:41:51 2019 +0200
+
+    Rock now works !
+
+commit 6d2fccefee9c6abaad3a92de37aac6e1e01b0a38
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Thu May 30 17:11:51 2019 +0200
+
+    new player move method (tplayer now move in updateMap()
+
+commit 5c90447b5f3294ea73dd88cf08a9724ad73d8e9f
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Thu May 30 16:01:00 2019 +0200
+
+    Change Image loading method
+
+commit 27335c616e5c8f35e1ab825d37d08548a5067c07
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 29 15:10:11 2019 +0200
+
+    no lag yet
+
+commit 753dce90f5a0ca5d48e69ae18967be36b280a995
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 14:41:34 2019 +0200
+
+    sprites new in entity (for test)
+
+commit d7fdb9f0d6081cdcff1c6937ba781f431eb384f1
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 13:54:40 2019 +0200
+
+    sprites version2
+
+commit 79073b1f6ea5f50cae8cd993fa81a890255a3a6c
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 13:18:59 2019 +0200
+
+    images 32x32
+
+commit 3d07ace832a6ae8a664f8c32203cd1268d1580cc
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Wed May 29 11:49:42 2019 +0200
+
+    Add 3 monsters
+
+commit 63f6fed3e252b6db58be5301a64168c17965c75b
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 29 11:37:13 2019 +0200
+
+    update
+
+commit 9f02c17025e4ab029cad5799c3f827c7927df038
+Merge: 26cc26e 8e0faf2
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 29 11:35:46 2019 +0200
+
+    Merge branch 'master' of https://github.com/TitouanNarbey/BoulderDash
+
+commit 26cc26e4e800e746ba11e62e8f60864abba6b8b0
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 29 11:35:30 2019 +0200
+
+    delete de la lib showboard
+
+commit 8e0faf2bd4dcbfc59d16653a8b8acfb73402b5ee
+Author: alexa <alexa@DESKTOP-IF07L83>
+Date:   Wed May 29 11:12:07 2019 +0200
+
+    Call procedure for change map
+
+commit 96304a9370273680d4f74c80166cdbdd4c9bb0d7
+Author: alexa <alexa@DESKTOP-IF07L83>
+Date:   Wed May 29 11:11:41 2019 +0200
+
+    Call procedure for change map
+
+commit 76c975b28b5301a171464c6087bd905717baf5cd
+Author: NarbeyTitouan <44726007+TitouanNarbey@users.noreply.github.com>
+Date:   Wed May 29 11:09:10 2019 +0200
+
+    Update .gitignore
+
+commit d27b284dbb843f3478ea6344dbe8d7175ff60ca9
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 10:47:31 2019 +0200
+
+    Resizing in sprites
+
+commit 56b301702ac086389fd8da90ec195b66185cce35
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 29 09:52:14 2019 +0200
+
+    update du gitignore
+
+commit bb7d929bc3f5f0ffaa808d619d6fe646e5b032ea
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 29 09:49:40 2019 +0200
+
+    delete du com pr sped l'update de la view
+
+commit b13b6127d9a99f50b8ad8a673ed0bb34780ad76f
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 09:26:31 2019 +0200
+
+    Fonctionnal View Update !
+
+commit f5890cb3d1e3e01fce22c2d74acc6643d27489f0
+Author: PrinceNano <cnanoko@gmail.com>
+Date:   Wed May 29 08:54:59 2019 +0200
+
+    Actualization when player move
+
+commit c9bca503f9a3b0e03992f04d56df0a78de4d6a3f
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 17:17:38 2019 +0200
+
+    La view s'update quand le player bouge
+
+commit 9d392f0d5311e592884ae7e4d50f9343098e15a5
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 16:55:48 2019 +0200
+
+    Le player peux bouger
+
+commit 6f4cf6677ac3c6a376b3bf5b5f166df4181d2695
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 16:22:36 2019 +0200
+
+    add des fonctions de fall
+
+commit 22eebccb8e96ba7083cf797bb8dc38c19051ab90
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 10:33:08 2019 +0200
+
+    Mouvement OK
+
+commit 8d28a2ff6c99e91bb1d8abebab0aef93599096ac
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Tue May 28 10:18:55 2019 +0200
+
+    Resolution du bug de hauteur largeur, mais plus d emouvement
+
+commit ba242f5c0b0a0ac49dac84b01090c15dd1d184b4
+Author: alexa <alexa@DESKTOP-IF07L83>
+Date:   Mon May 27 17:07:31 2019 +0200
+
+    Add map change
+
+commit fb9a0306f7702317fca0c9642cfa0f95e769d4e8
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 16:02:46 2019 +0200
+
+    By Olivia, render view is implemented, but not updated
+
+commit ef9ff21d962156ef0057c789109b6efed4502bd5
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 13:31:10 2019 +0200
+
+    Gravity, diamond, exit
+
+commit 62b060f0a0e58f7d83e7f50154a70edb7f884419
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 10:40:27 2019 +0200
+
+    Player can move !
+
+commit cb2fb4660299155e294f2c9cd33c792d7fd18865
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 09:59:19 2019 +0200
+
+    Player can move (need test)
+
+commit d7e86f29329bd444c6de6e65b7bfa7313cf817b4
+Author: alexa <alexa@DESKTOP-IF07L83>
+Date:   Mon May 27 09:35:43 2019 +0200
+
+    add key control
+
+commit 15fb02f82ac9775613e8e4c0bcde23ab0ae4a559
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Mon May 27 08:29:23 2019 +0200
+
+    Remise en forme de la view, tt est normal
+
+commit ee4223dc99bce2db384269fc40e2f3ec20694784
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun May 26 16:52:28 2019 +0200
+
+    test avec les control, mais erreurs du au view, a revoir
+
+commit 4c97bb1f9c027dbb6f8bc277f10b590d0abbd849
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun May 26 14:04:02 2019 +0200
+
+    les Entities sont bien chargé dans la map au bon endroit, exemple de System.out.println() dans DAOMap.java
+
+commit 758d61d6ea482d17fe388d27c3c33bd66b995a7c
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun May 26 13:41:28 2019 +0200
+
+    Les données sont désormais dans la map, besoin d efaire une verif
+
+commit fddbefb755a19ca1ccc0eba7b8cb5c24425eee0f
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun May 26 13:31:49 2019 +0200
+
+    Add du system de sprite pour les entities (les sprites ne sont pas encore référencé
+
+commit 742fdc77e86dcee08892c647b2f6e51a2772d9bc
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sun May 26 12:25:41 2019 +0200
+
+    La connexion a la BDD est faite, surement besoin de revoir de IModel à Map, le helloworld est cassé, mais c'est pas grave
+
+commit e67ca284d3f54f6cca039c4fc4f443096c4ec611
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sat May 25 11:42:54 2019 +0200
+
+    Modif du gitignore
+
+commit ad78fb3ad6638f587df26c07f5bd1f759953d0d0
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Sat May 25 11:38:58 2019 +0200
+
+    Add de la lib showboard
+
+commit 949c5f293a9de6f01022c259d2dc0ed58c1dae69
+Merge: 37ce670 f969511
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 24 13:57:01 2019 +0200
+
+    MAJ
+
+commit 37ce67069c63ee4e6f0c269f4ae72b107cef81dc
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 24 13:54:23 2019 +0200
+
+    Mise a jour Gledis
+
+commit f969511079bb8cf85c43f2bbfddf82ef05a68776
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Fri May 24 13:53:26 2019 +0200
+
+    Get and Set pour MAP
+
+commit 62db14e36447548bbf1155ee26de99165eb87bb7
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 24 13:19:28 2019 +0200
+
+    Class map
+
+commit 9ab76a1cab7ba9a24e9488b101b68272ea215e66
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Fri May 24 11:50:15 2019 +0200
+
+    Creation de classe pour live
+
+commit 79054b9df8c8c3114e4a064183a523a3579b6895
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 24 11:26:30 2019 +0200
+
+    Deplacement des interfaces
+
+commit eae5a2d97680f6bf94a868a25f9845ebba1c4ec2
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Fri May 24 11:19:22 2019 +0200
+
+    Creation des objets
+
+commit 993c61bce7368c7bcf0e5cdd04b70a2f7d9dc51d
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 24 10:52:15 2019 +0200
+
+    Add des fils pr les dernier commit
+
+commit ceba6770b983739c2c7867c4c9d6e00d0068c454
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Fri May 24 10:49:36 2019 +0200
+
+    Premiere class diamond, + add des dépendances
+
+commit d2e82ffff8e1f56a215602df528f198a0a1f76f3
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Fri May 24 10:05:02 2019 +0200
+
+    MAP de test
+
+commit 70544b91cf52e8737a68bdb79ec343efdc5fa6e0
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Fri May 24 09:26:23 2019 +0200
+
+    Definition des entitiés pas character
+
+commit 4f292967c95ff347037e24d6405e279922bae032
+Author: Gled07 <gledgjyriqi@gmail.com>
+Date:   Wed May 22 16:35:29 2019 +0200
+
+    Correction erreur de login ide eclipse
+
+commit 0a0012179324f9d88cfe40d0b7ee47a47df6c18d
+Author: AmineGhoumid <47556180+AmineGhoumid@users.noreply.github.com>
+Date:   Wed May 22 16:29:14 2019 +0200
+
+    Creation des interfaces
+
+commit 8435f05c2ae4df7b4f5e383fa8f569219fa5ea5a
+Author: Titouan Narbey <titouan.narbey@gmail.com>
+Date:   Wed May 22 11:12:56 2019 +0200
+
+    Hello World !
