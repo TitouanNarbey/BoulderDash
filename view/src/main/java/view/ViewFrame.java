@@ -117,6 +117,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
+
 	}
 
 	/**

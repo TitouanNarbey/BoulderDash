@@ -31,7 +31,6 @@ public class MapTest {
 	
 	}
 	
-//From Github
 	@Test
 	public void testGetWidth() {
 		 try {
