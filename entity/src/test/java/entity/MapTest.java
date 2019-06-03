@@ -40,10 +40,7 @@ public class MapTest {
 	
 	}
 	
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/TitouanNarbey/BoulderDash
 	@Test
 	public void testGetWidth() {
 		 try {

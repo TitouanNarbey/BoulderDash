@@ -69,7 +69,7 @@ public class ViewFrameTest {
 		ViewFrame fakeview = new ViewFrame(model2);
 		
 		assertNotNull(fakeview.getModel());
-		System.out.println("je sais pas");
+		System.out.println(" : ViewFrameTest#testGetModel() is ok.");
 		//assertTrue(model2.getMap());
 		
 	}
