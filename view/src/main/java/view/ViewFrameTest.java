@@ -1,6 +1,6 @@
 package view;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Observable;
 
@@ -13,7 +13,6 @@ import org.junit.Test;
 import contract.IModel;
 import entity.HelloWorld;
 import entity.Map;
-import view.ViewFrame;
 
 public class ViewFrameTest {
 	
@@ -69,7 +68,7 @@ public class ViewFrameTest {
 		
 		ViewFrame fakeview = new ViewFrame(model2);
 		
-		assert fakeview.getModel()!= model2;
+		assertNotNull(fakeview.getModel());
 		System.out.println("je sais pas");
 		//assertTrue(model2.getMap());
 		
@@ -102,32 +101,27 @@ public class ViewFrameTest {
 
 		@Override
 		public HelloWorld getHelloWorld() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
 		public void loadHelloWorld(String code) {
-			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
 		public Observable getObservable() {
-			// TODO Auto-generated method stub
 			return new Observable();
 		}
 
 		@Override
 		public void loadMap(int code) {
-			// TODO Auto-generated method stub
 			
 		}
 
 		@Override
 		public Map getMap() {
-			// TODO Auto-generated method stub
-			return null;
+			return new Map();
 		}
 		
 		
