@@ -31,7 +31,20 @@ public class MapTest {
 	
 	}
 	
+//From Github
+	@Test
 	public void testGetWidth() {
+		 try {
+		Map t = new Map(40,56);
+		t.getEntity(300,300);
+		 }
+		 
+		 catch(Exception e) {
+			 System.out.println("Error, Out of bound exception.");
+		 }
+		
+	
+//	public void testGetWidth() {
 		
 //		Random r = new Random();
 //		int low = 1;
