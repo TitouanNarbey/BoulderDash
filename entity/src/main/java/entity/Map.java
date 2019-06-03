@@ -25,7 +25,7 @@ public class Map extends Observable {
 	private Entity[][] content;// [x][y]
 	Direction nextPlayerDirection = Direction.NOTHING;
 	Random rand = new Random();
-	int time = 150 *5;// second / 5
+	int time;// second / 5
 	private boolean loose = false;
 	private boolean win = false;
 	
@@ -47,6 +47,7 @@ public class Map extends Observable {
     	// scheduling the task at interval
 		width = 1;
 		height = 1;
+		time = 150 *5;
 		content = new Entity[width][height];
 		content[0][0] = new Air();
 	}
@@ -65,6 +66,7 @@ public class Map extends Observable {
     	timer.schedule(task,200, 200);
 		width = width_;
 		height = height_;
+		time = 20 *5;
 		content = new Entity[height][width];
 	}
 	
@@ -1025,6 +1027,7 @@ public class Map extends Observable {
 		if(time < 0)
 		{
 			System.out.println("Time out !");
+			killPlayer();
 		}
 		else
 		{
@@ -1102,9 +1105,10 @@ public class Map extends Observable {
 	public void killPlayer() {
 		System.out.println("Player is dead !");
 		loose = true;
+		time = 2000000000;//for background map timer
 		explode(getPlayerLocation());
-		setChanged();
-		notifyObservers();
+//		setChanged();
+//		notifyObservers();
 		
 		try {
 			TimeUnit.SECONDS.sleep(2);
@@ -1205,6 +1209,17 @@ public class Map extends Observable {
 	 */
 	public int getTime() {
 		return time/5;
+	}
+	
+	/**
+	 * Set remaining time in second
+	 * 
+	 * @param sec_
+	 * 		time in second
+	 * 
+	 */
+	public void setTime(int sec_) {
+		time = sec_ *5;
 	}
 	
 	/**

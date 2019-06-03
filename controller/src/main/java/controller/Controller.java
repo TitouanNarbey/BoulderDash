@@ -104,18 +104,23 @@ public final class Controller implements IController{
 				this.model.getMap().setNextPlayerDirection(Direction.RIGHT);
 				break;
 			case mapONE:
+				this.model.getMap().setTime(2000000000);
 				this.model.loadMap(1);
 				break;
 			case mapTWO:
+				this.model.getMap().setTime(2000000000);
 				this.model.loadMap(2);
 				break;
 			case mapTHREE:
+				this.model.getMap().setTime(2000000000);
 				this.model.loadMap(3);
 				break;
 			case mapFOUR:
+				this.model.getMap().setTime(2000000000);
 				this.model.loadMap(4);
 				break;
 			case mapFIVE:
+				this.model.getMap().setTime(2000000000);
 				this.model.loadMap(5);
 				break;
 				
